@@ -40,7 +40,7 @@ int _setenv(info_t *info, char *var, char *value)
 	while (node)
 	{
 		ptr = starts_with(node->str, var);
-		if (*ptr && ptr == '=')
+		if (*ptr == '=' && ptr)
 		{
 			free(node->str);
 			node->str = buffer;
