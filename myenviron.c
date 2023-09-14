@@ -21,7 +21,7 @@ char *_getenv(info_t *info, const char *var)
 {
 	list_t *node = info->env;
 	char *tok;
-	
+
 	while (node)
 	{
 		tok = starts_with(node->str, var);
@@ -57,7 +57,7 @@ int _mysetenv(info_t *info)
 int _myunsetenv(info_t *info)
 {
 	int i = 1;
-	
+
 	if (info->argc == 1)
 	{
 		_eputs("Too few arguments.\n");
@@ -80,7 +80,7 @@ int populate_env_list(info_t *info)
 {
 	list_t *node = NULL;
 	size_t i = 0;
-	
+
 	while (environ[i] != '\0')
 	{
 		add_node_end(&node, environ[i], 0);
