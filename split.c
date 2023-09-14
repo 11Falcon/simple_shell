@@ -8,7 +8,6 @@ char **split(const char *string)
 {
 	char **list = NULL;
 	int word = 0, first = 1, i = 0;
-	const char *start = string;
 	if (!string)
 		return (list);
 	while (*string)
@@ -22,7 +21,7 @@ char **split(const char *string)
 				list[word] = NULL;
 				first = 0;
 			}
-			list[word] = _realloc(list[word], (i + 2) * sizeof(char*));
+			list[word] = realloc(list[word], (i + 2) * sizeof(char*));
 			error_handling(list[word], "Error : enter a string\n");
 			list[word][i] = *string;
 			i++;
@@ -46,7 +45,7 @@ char **split(const char *string)
 		list[word][i] = '\0';
 		word++;
 	}
-	list = _realloc(list, (word + 1) * sizeof(char*));
+	list = realloc(list, (word + 1) * sizeof(char*));
 	error_handling(list, "Error : Memory allocation failed\n");
 	list[word] = NULL;
 	return (list);
