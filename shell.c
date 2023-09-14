@@ -47,7 +47,7 @@ int main(void)
 		{
 			if (execve(argv[0], argv, NULL) == -1)
 			{
-				perror("execve");
+				perror("./shell");
 				exit(1);
 			}
 		}
