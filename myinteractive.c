@@ -9,7 +9,7 @@ int interactive(info_t *info)
 {
 	int i = isatty(STDIN_FILENO);
 	int j = (info->readfd <= 2);
-	
+
 	if (i && j)
 		return (1);
 	else
