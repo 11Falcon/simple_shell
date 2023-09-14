@@ -9,7 +9,7 @@
 char *_strcpy(char *org, char *cp)
 {
 	int i;
-	
+
 	if (org == cp || org == 0)
 		return (cp);
 	for (i = 0; org[i]; i++)
@@ -31,7 +31,7 @@ char *_strdup(char *org)
 	if (org == NULL)
 		return (NULL);
 	for (i = 0; org[i]; i++)
-	;	
+	;
 	dup = malloc(sizeof(char *) * i + 1);
 	if (!dup)
 		return (NULL);
