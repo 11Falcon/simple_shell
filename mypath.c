@@ -48,14 +48,14 @@ char *find_path(info_t *info, char *str, char *cmd)
 {
 	int i, j;
 	char *ptr;
-	
+
 	if (!str)
 		return (NULL);
 	if (starts_with(cmd, "/") && (_strlen(cmd) > 2))
 		if (is_cmd(info, cmd))
 			return (cmd);
 	i = 0;
-	j= 0;
+	j = 0;
 	while (1)
 	{
 		if (str[i] == ':' || !str[i])
