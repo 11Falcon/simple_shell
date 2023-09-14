@@ -1,30 +1,35 @@
 #include "shell.h"
 /**
- * _realloc - realloc funtion
- * @p: char pointer
- * @old_s: old pointer
- * @new_s: new pointer
+ * _realloc - realloc
+ * @p: input
+ * @o_s: old size
+ * @n_s: new size
  */
-void *_realloc(char *p, unsigned int old_s, unsigned int new_s)
+void **_realloc(char *p, unsigned int o_s, unsigned int n_s)
 {
-	char *ptr;
-	
-	if (p == NULL)
-		return (malloc(new_s));
-	if (new_s == 0)
+	void **ptr;
+
+	if (p == NULL) {
+		ptr = malloc(n_s);
+		if (ptr == NULL)
+			return NULL;
+		return ptr;
+	}
+	if (n_s == 0)
 	{
 		free(p);
-		return (NULL);
+		return NULL;
 	}
-	if (new_s == old_s)
-		return (p);
-	ptr = malloc(new_s);
+	if (n_s == o_s)
+		return (void **)p;
+	ptr = malloc(n_s);
 	if (ptr == NULL)
-		return (NULL);
-	if (old_s > new_s)
-		old_s = new_s;
-	while (old_s--)
-		ptr[old_s] = ((char *)p)[old_s];
-	free(ptr);
-	return (p);
+		return NULL;
+	if (o_s > n_s)
+		o_s = n_s;
+/**	while (o_s--)
+*		ptr[o_s] = p[o_s];
+*	free(p);
+*/	
+	return ptr;
 }
