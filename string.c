@@ -40,7 +40,7 @@ int _strcmp(char *str1, char *str2)
 }
 
 /**
-* strats_with -  search for a substring in string
+* starts_with -  search for a substring in string
 * @s: the string to search in
 * @substr: the substring to search for
 * Return: the address of the substring or NULL
