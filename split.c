@@ -1,7 +1,9 @@
-#include <unistd.h>
-#include <stddef.h>
-#include <stdlib.h>
 #include "shell.h"
+/**
+ * split - spliting the user input into words
+ * @string: user input
+ * Return: argv[arg]
+ */
 char **split(const char *string)
 {
 	char **list = NULL;
