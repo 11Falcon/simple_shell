@@ -10,7 +10,7 @@
 char *_memset(char *ptr, char b, unsigned int nb)
 {
 	unsigned int i = 0;
-	
+
 	while (i < nb)
 	{
 		ptr[i] = b;
@@ -49,7 +49,7 @@ void sfree(char **str)
 void *_realloc(char *p, unsigned int old_size, unsigned int new_size)
 {
 	char *ptr;
-	
+
 	if (p == NULL)
 		return (malloc(new_size));
 	if (new_size == 0)

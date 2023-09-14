@@ -12,7 +12,7 @@ char **strtow(char *str, char *del)
 	int i, j, k;
 	int len = _strlen(str);
 	char **array;
-	
+
 	if (!str || !str[0])
 		return (NULL);
 	if (!del)
@@ -65,8 +65,12 @@ char **strtow2(char *str, char del)
 	if (!str || !str[0])
 		return (NULL);
 	for (i = 0; str[i]; i++)
-		if ((str[i] != del && str[i + 1] == del) || str[i + 1] == del ||(str[i] != del && str[i + 1] == '\0'))
+	{
+		if (str[i] != del && str[i + 1] == del)
 			words++;
+		else if (str[i + 1] == del || (str[i] != del && str[i + 1] == '\0'))
+			words++
+	}
 	array = malloc((words + 1) * sizeof(char *));
 	if (!array)
 		return (NULL);

@@ -18,7 +18,7 @@ void _eputs(char *s)
 /**
 * _eputchar - display a char in stderr
 * @ch: the char to display
-* @Return: 1 if success, -1 if fail
+* Return: 1 if success
 */
 int _eputchar(char ch)
 {
@@ -27,7 +27,7 @@ int _eputchar(char ch)
 
 	if (ch == BUF_FLUSH || i >= WRITE_BUF_SIZE)
 		write(2, buffer, i);
-       	i = 0;
+	i = 0;
 	if (ch != BUF_FLUSH)
 		buffer[i++] = ch;
 	return (1);
@@ -43,7 +43,7 @@ int _putfd(char ch, int fd)
 {
 	int i = 0;
 	static char buffer[WRITE_BUF_SIZE];
-	
+
 	if (ch == BUF_FLUSH || i >= WRITE_BUF_SIZE)
 		write(fd, buffer, i);
 	i = 0;
@@ -63,7 +63,7 @@ int _putsfd(char *s, int fd)
 	int i = 0;
 
 	if (!s)
-		return(0);
+		return (0);
 	while (*s)
 	{
 		i = i + _putfd(*s, fd);
