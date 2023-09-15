@@ -45,3 +45,9 @@ int number_of_words(char *string) {
 	}
 	return count;
 }
+int main(void)
+{
+	char *sentence = "Hello world";
+	printf("%d\n",number_of_words(sentence));
+	return (0);
+}
