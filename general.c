@@ -1,7 +1,4 @@
-#include <stdio.h>
-struct punc {
-  char c;
-};
+#include "shell.h"
 struct punc my_punc[] = {
 	{'.', },
 	{',', },
@@ -40,9 +37,4 @@ int number_of_words(char *string)
 	}
 	return (count);
 }
-int main(void)
-{
-	char *sentence = "Hello world";
-	printf("%d\n",number_of_words(sentence));
-	return (0);
-}
+
