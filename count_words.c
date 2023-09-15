@@ -25,7 +25,7 @@ int is_punctuation(char c)
 	return (0);
 }
 
-int number_of_words(char *string) {
+int number_of_words(const char *string) {
 	int count = 0;
 	int in_word = 0;
 
@@ -44,10 +44,4 @@ int number_of_words(char *string) {
 		string++;
 	}
 	return count;
-}
-int main(void)
-{
-	char *sentence = "Hello world";
-	printf("%d\n",number_of_words(sentence));
-	return (0);
 }
