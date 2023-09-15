@@ -6,6 +6,11 @@
 #include <stdio.h>
 #include <sys/types.h>
 #include <sys/wait.h>
+typedef void (*fonction)();
+struct punc{
+	char c;
+	fonction fonc;
+};
 
 char **split(const char *string);
 void error_handling(void *ptr, const char *message);
