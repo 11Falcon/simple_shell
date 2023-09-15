@@ -15,18 +15,16 @@ char **split(const char *string)
 	{
 		if (!is_punctuation(*string))
 		{
-			if (first)
+                        error_handling(list[word], "Error : enter a string\n");
+			s = 0;
+			l = count_letters(string);
+			list[i] = malloc (l);
+			while (s < l)
 			{
-				error_handling(list, "Error : enter a string\n");
-				list[i] = NULL;
-				first = 0;
+				list[word][s] = *string;
+				s++;
+				string++;
 			}
-			list[i] = re
-				alloc(list[word], (i + 2) * sizeof(char*));
-			error_handling(list[word], "Error : enter a string\n");
-			list[word][i] = *string;
-			i++;
-			string++;
 		}
 		else
 		{
