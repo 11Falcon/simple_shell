@@ -1,3 +1,4 @@
+#include "shell.h"
 /**
  * child_process_and_wait - same thing
  * @argv: input
@@ -5,11 +6,13 @@
 void child_process_and_wait(char **argv)
 {
 	pid_t pid = fork();
+
 	if (pid == 0)
 		child_process(argv);
 	else
 	{
 		int status;
+
 		wait(&status);
 	}
 }

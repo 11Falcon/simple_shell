@@ -1,7 +1,12 @@
 #include "shell.h"
-int main(void) {
+/**
+ * main - the core function
+ * Return: int
+ */
+int main(void)
+{
 	char *ash = malloc(1024), **argv;
-	
+
 	while (1)
 	{
 		ash = get_input();
@@ -16,5 +21,5 @@ int main(void) {
 		child_process_and_wait(argv);
 		free(ash);
 	}
-       	return (0);
+	return (0);
 }
