@@ -24,4 +24,5 @@ int subsplit(char **list, int word);
 int number_of_words(const char *string);
 int is_punctuation(char c);
 int count_letters(const char *pointer);
+char *get_input();
 #endif
