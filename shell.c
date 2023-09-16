@@ -8,9 +8,7 @@
 int main(void)
 {
 	char *ash = malloc (1024);
-	char *input;
 	char **argv;
-	input = "exit";
 	while (1)
 	{
 		int r;
@@ -33,7 +31,6 @@ int main(void)
 			continue;
 		if (compare(argv[0], "exit"))
 		{
-			printf("bye\n");
 			free(ash);
 			exit (1);
 		}
@@ -47,7 +44,7 @@ int main(void)
 		{
 			if (execve(argv[0], argv, NULL) == -1)
 			{
-				perror("execve");
+				perror("./shell");
 				exit(1);
 			}
 		}
