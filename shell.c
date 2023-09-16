@@ -4,11 +4,41 @@
 #include <stdio.h>
 #include <sys/types.h>
 #include <sys/wait.h>
+#include <errno.h>
+#include <fcntl.h>
 
-int main(void)
+/**
+ * main - the main function
+ * @ac: the argument counter
+ * @av: array of strings
+ * Return: 0
+ */
+
+int main(int ac, char **av)
 {
+	int fd;
 	char *ash = malloc (1024);
 	char **argv;
+
+	if (ac == 2)
+	{
+		fd = open(av[1], O_RDONLY, 0644);
+		if (fd == -1)
+		{
+			if (errno == EACCES)
+				exit (126);
+			if (errno == ENOENT)
+			{
+				_puts(av[0]);
+				_puts(": 0: Can't open ");
+				_puts(av[1]);
+				_putchar('\n');
+				exit(127);
+			}
+			return (EXIT_FAILURE);
+		}
+	}
+
 	while (1)
 	{
 		int r;
@@ -44,7 +74,9 @@ int main(void)
 		{
 			if (execve(argv[0], argv, NULL) == -1)
 			{
-				perror("./shell");
+				_puts(av[0]);
+				_puts(": 1: qwerty: not found");
+				_putchar('\n');
 				exit(1);
 			}
 		}

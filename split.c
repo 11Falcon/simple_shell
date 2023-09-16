@@ -1,4 +1,5 @@
 #include "shell.h"
+
 /**
  * split - splitting a string to words
  * @string: the sentence to split
