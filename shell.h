@@ -6,6 +6,10 @@
 #include <stdio.h>
 #include <sys/types.h>
 #include <sys/wait.h>
+#include <string.h>
+
+extern char **environ;
+
 typedef void (*fonction)();
 /**
  * struct punc - structure
@@ -29,4 +33,6 @@ void child_process_and_wait(char **argv, char **av);
 void child_process(char **argv, char **av);
 void _puts(char *ch);
 int _putchar(char ch);
+void _environ();
+
 #endif

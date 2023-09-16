@@ -20,6 +20,8 @@ int main(int ac, char **av)
 			free(ash);
 			exit(1);
 		}
+		if (compare(argv[0], "env"))
+			_environ(argv);
 		child_process_and_wait(argv, av);
 		free(ash);
 	}
