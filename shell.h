@@ -12,11 +12,11 @@ typedef void (*fonction)();
  * @c: pointuation
  * @description: desc
  */
-struct punc
+typedef struct punc
 {
 	char c;
 	char *description;
-};
+} pun_t;
 char **split(const char *string);
 void error_handling(void *ptr, const char *message);
 int compare(const char *str1, const char *str2);
