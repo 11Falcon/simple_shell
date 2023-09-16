@@ -2,50 +2,48 @@
 #include <stddef.h>
 #include <stdlib.h>
 #include "shell.h"
-char **split(const char *string)
-{
-	char **list = NULL;
-	int word = 0, first = 1, i = 0;
-	const char *start = string;
-	if (!string)
-		return (list);
-	while (*string)
-	{
-		if (*string != ' ' && *string != '\t' && *string != '\n' && *string != '\r' && *string != '\a')
-		{
-			if (first)
-			{
-				list = realloc(list, (word +1) *sizeof(char*));
-				error_handling(list, "Error : enter a string\n");
-				list[word] = NULL;
-				first = 0;
-			}
-			list[word] = realloc(list[word], (i + 2) * sizeof(char*));
-			error_handling(list[word], "Error : enter a string\n");
-			list[word][i] = *string;
-			i++;
-			string++;
-		}
-		else
-		{
-			while (*string == ' ' || *string == '\t' || *string == '\n' || *string == '\r' || *string == '\a')
-				string++;
-			if (!first)
-			{
-				list[word][i] = '\0';
-				word++;
-				i = 0;
-				first = 1;
-			}
-		}
-	}
-	if (!first)
-	{
-		list[word][i] = '\0';
-		word++;
-	}
-	list = realloc(list, (word + 1) * sizeof(char*));
-	error_handling(list, "Error : Memory allocation failed\n");
-	list[word] = NULL;
-	return (list);
+
+char **split(const char *string) {
+  char **list;
+  int s, l, word, first = 1, i = 0;
+  const char *start = string;
+
+  if (!string) {
+    return NULL;
+  }
+
+  word = number_of_words(string);
+  list = malloc((word + 1) * sizeof(char*));
+  if (!list) {
+    error_handling(list, "Error : Memory allocation failed\n");
+    return NULL;
+  }
+
+  while (*string) {
+    if (!is_punctuation(*string)) {
+      s = 0;
+      l = count_letters(string);
+      list[i] = malloc(l + 1);
+      if (!list[i]) {
+        error_handling(list, "Error : Memory allocation failed\n");
+        return NULL;
+      }
+
+      while (s < l) {
+        list[i][s] = *string;
+        s++;
+        string++;
+      }
+
+      list[i][l] = '\0';
+      i++;
+    } else {
+      while (is_punctuation(*string)) {
+        string++;
+      }
+    }
+  }
+
+  list[word] = NULL;
+  return list;
 }

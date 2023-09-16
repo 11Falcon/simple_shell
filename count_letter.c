@@ -1,6 +1,6 @@
 #include "shell.h"
 
-int count_letters(char *pointer)
+int count_letters(const char *pointer)
 {
 	int count = 0;
 
