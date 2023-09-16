@@ -1,48 +1,59 @@
 #include "shell.h"
-/**
- * split - splitting a string to words
- * @string: the sentence to split
- * Return: a list of words
- */
-char **split(const char *string)
-{
-	char **list;
-	int s, l, word, i = 0;
+#include <unistd.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <sys/types.h>
+#include <sys/wait.h>
 
-	if (!string)
-		return (NULL);
-	word = number_of_words(string);
-	list = malloc((word + 1) * sizeof(char *));
-	if (!list)
+int main(void)
+{
+	char *ash = malloc (1024);
+	char **argv;
+	while (1)
 	{
-		error_handling(list, "Error : Memory allocation failed\n");
-		return (NULL);
-	}
-	while (*string)
-	{
-		if (!is_punctuation(*string))
+		int r;
+		pid_t pid;
+		write(STDOUT_FILENO, "($) ", 4);
+		ash = (char *)malloc(100);
+		r = read(STDIN_FILENO, ash, 1024);
+		if (r == -1)
 		{
-			s = 0;
-			l = count_letters(string);
-			list[i] = malloc(l + 1);
-			if (!list[i])
+			write(STDOUT_FILENO, "Error\n", 6);
+			continue;
+		}
+		else if (r == 0)
+		{
+			write(STDOUT_FILENO, "\n", 2);
+			continue;
+		}
+		argv = split(ash);
+		if (argv[0] == NULL)
+			continue;
+		if (compare(argv[0], "exit"))
+		{
+			free(ash);
+			exit (1);
+		}
+		pid = fork();
+		if (pid == -1)
+		{
+			write(STDERR_FILENO, "Error\n", 6);
+			continue;
+		}
+		if (pid == 0)
+		{
+			if (execve(argv[0], argv, NULL) == -1)
 			{
-				error_handling(list, "Error : Memory allocation failed\n");
-				return (NULL);
+				perror("./shell");
+				exit(1);
 			}
-			while (s < l)
-			{
-				list[i][s] = *string;
-				s++;
-				string++;
-			}
-			list[i][l] = '\0';
-			i++;
 		}
 		else
-			while (is_punctuation(*string))
-				string++;
+		{
+			int status;
+			wait(&status);
+		}
+		free(ash);
 	}
-	list[word] = (NULL);
-	return (list);
+	return (0);
 }
