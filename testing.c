@@ -4,7 +4,10 @@
 #include <stdio.h>
 #include <sys/types.h>
 #include <sys/wait.h>
-
+/**
+ * main - simple shell core
+ * Return: int
+ */
 int main(void)
 {
 	char *ash = malloc(1024), **argv;
