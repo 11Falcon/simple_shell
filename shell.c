@@ -1,54 +1,48 @@
 #include "shell.h"
-
-int main(void)
+/**
+ * split - splitting a string to words
+ * @string: the sentence to split
+ * Return: a list of words
+ */
+char **split(const char *string)
 {
-	char *ash = malloc (1024);
-	char **argv;
-	while (1)
+	char **list;
+	int s, l, word, i = 0;
+
+	if (!string)
+		return (NULL);
+	word = number_of_words(string);
+	list = malloc((word + 1) * sizeof(char *));
+	if (!list)
 	{
-		int r;
-		pid_t pid;
-		write(STDOUT_FILENO, "($) ", 4);
-		ash = (char *)malloc(100);
-		r = read(STDIN_FILENO, ash, 1024);
-		if (r == -1)
+		error_handling(list, "Error : Memory allocation failed\n");
+		return (NULL);
+	}
+	while (*string)
+	{
+		if (!is_punctuation(*string))
 		{
-			write(STDOUT_FILENO, "Error\n", 6);
-			continue;
-		}
-		else if (r == 0)
-		{
-			write(STDOUT_FILENO, "\n", 2);
-			continue;
-		}
-		argv = split(ash);
-		if (argv[0] == NULL)
-			continue;
-		if (compare(argv[0], "exit"))
-		{
-			free(ash);
-			exit (1);
-		}
-		pid = fork();
-		if (pid == -1)
-		{
-			write(STDERR_FILENO, "Error\n", 6);
-			continue;
-		}
-		if (pid == 0)
-		{
-			if (execve(argv[0], argv, NULL) == -1)
+			s = 0;
+			l = count_letters(string);
+			list[i] = malloc(l + 1);
+			if (!list[i])
 			{
-				perror("./shell");
-				exit(1);
+				error_handling(list, "Error : Memory allocation failed\n");
+				return (NULL);
 			}
+			while (s < l)
+			{
+				list[i][s] = *string;
+				s++;
+				string++;
+			}
+			list[i][l] = '\0';
+			i++;
 		}
 		else
-		{
-			int status;
-			wait(&status);
-		}
-		free(ash);
+			while (is_punctuation(*string))
+				string++;
 	}
-	return (0);
+	list[word] = (NULL);
+	return (list);
 }
