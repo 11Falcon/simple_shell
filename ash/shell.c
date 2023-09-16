@@ -20,6 +20,7 @@ int main(int ac, char **av)
 	char *ash = malloc (1024);
 	char **argv;
 
+
 	if (ac == 2)
 	{
 		fd = open(av[1], O_RDONLY, 0644);
