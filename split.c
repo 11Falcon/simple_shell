@@ -7,8 +7,7 @@
 char **split(const char *string)
 {
 	char **list;
-	int s, l, word, first = 1, i = 0;
-	const char *start = string;
+	int s, l, word, i = 0;
 
 	if (!string)
 		return (NULL);

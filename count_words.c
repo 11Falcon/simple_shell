@@ -16,7 +16,9 @@ struct punc my_punc[] = {
 
 int is_punctuation(char c)
 {
-	for (int i = 0; my_punc[i].c != 0; i++) {
+	int i;
+
+	for (i = 0; my_punc[i].c != 0; i++) {
 		if (my_punc[i].c == c)
 		{
 			return (1);
