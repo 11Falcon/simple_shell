@@ -29,4 +29,5 @@ void child_process_and_wait(char **argv, char **av);
 void child_process(char **argv, char **av);
 void _puts(char *ch);
 int _putchar(char ch);
+char *merge(const char *beg, const char *end);
 #endif
