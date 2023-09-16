@@ -25,6 +25,8 @@ int number_of_words(const char *string);
 int is_punctuation(char c);
 int count_letters(const char *pointer);
 char *get_input();
-void child_process_and_wait(char **argv);
-void child_process(char **argv);
+void child_process_and_wait(char **argv, char **av);
+void child_process(char **argv, char **av);
+void _puts(char *ch);
+int _putchar(char ch);
 #endif

@@ -1,9 +1,11 @@
 #include "shell.h"
 /**
- * main - the core function
- * Return: int
+ * main - the main function
+ * @ac: the argument counter
+ * @av: array of strings
+ * Return: 0
  */
-int main(void)
+int main(int ac, char **av)
 {
 	char *ash = malloc(1024), **argv;
 
@@ -18,8 +20,9 @@ int main(void)
 			free(ash);
 			exit(1);
 		}
-		child_process_and_wait(argv);
+		child_process_and_wait(argv, av);
 		free(ash);
 	}
 	return (0);
+	(void)ac;
 }
