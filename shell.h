@@ -34,5 +34,5 @@ void child_process(char **argv, char **av);
 void _puts(char *ch);
 int _putchar(char ch);
 void _environ();
-
+char *merge(const char *beg, const char *end);
 #endif
