@@ -37,7 +37,7 @@ void child_process(char **argv, char **av)
  * _environ - display the environment list
  * Return: nothing
  */
-void _environ()
+void _environ(void)
 {
 	int i;
 
