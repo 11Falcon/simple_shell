@@ -32,3 +32,19 @@ void child_process(char **argv, char **av)
 		exit(1);
 	}
 }
+
+/**
+ * _environ - display the environment list
+ * Return: nothing
+ */
+void _environ()
+{
+	int i;
+
+	for (i = 0; environ[i]; i++)
+	{
+		_puts(environ[i]);
+		_putchar('\n');
+	}
+
+}
