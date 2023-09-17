@@ -7,20 +7,21 @@
  */
 int main(int ac, char **av)
 {
-	char *ash = malloc(1024), **argv;
+	char *ash = malloc(1024), **argv, **i_i;
 
 	while (1)
 	{
+		i_i = split_(ash);
 		ash = get_input();
 		argv = split(ash);
 		if (argv[0] == NULL)
 			continue;
-		if (compare(argv[0], "exit"))
+		if (compare(i_i[0], "exit"))
 		{
 			free(ash);
 			exit(1);
 		}
-		if (compare(argv[0], "env"))
+		if (compare(i_i[0], "env"))
 			_environ(argv);
 		child_process_and_wait(argv, av);
 		free(ash);

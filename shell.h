@@ -35,4 +35,7 @@ void _puts(char *ch);
 int _putchar(char ch);
 void _environ();
 char *merge(const char *beg, const char *end);
+char **split_child(const char *string, int i, char **list);
+char **split_child1(const char *string, int i, char **list);
+char **split_(const char *string);
 #endif
