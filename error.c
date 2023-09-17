@@ -1,10 +1,10 @@
 #include "shell.h"
-#include <unistd.h>
-#include <stdlib.h>
+
 /**
  * error_handling - handle erro
  * @ptr: condition
  * @message: the message to return
+ * Return: nothing
  */
 void error_handling(void *ptr, const char *message)
 {

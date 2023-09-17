@@ -1,4 +1,5 @@
 #include "shell.h"
+
 /**
  * merge - merging two strings
  * @beg: first string

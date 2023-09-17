@@ -1,4 +1,5 @@
 #include "shell.h"
+
 /**
  * count_letters - number of letters in a word
  * @pointer: the poiner of the first letter of the word

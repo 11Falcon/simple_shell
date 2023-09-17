@@ -3,6 +3,7 @@
  * child_process_and_wait - same thing
  * @argv: input
  * @av: args
+ * Return: nothing
  */
 void child_process_and_wait(char **argv, char **av)
 {
@@ -17,10 +18,12 @@ void child_process_and_wait(char **argv, char **av)
 		wait(&status);
 	}
 }
+
 /**
  * child_process - same
  * @argv: input
  * @av: args
+ * Return: nothing
  */
 void child_process(char **argv, char **av)
 {

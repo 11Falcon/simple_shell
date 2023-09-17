@@ -1,4 +1,5 @@
 #include "shell.h"
+
 /**
  * main - the main function
  * @ac: the argument counter

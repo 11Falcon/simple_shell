@@ -1,9 +1,11 @@
 #include "shell.h"
+
 /**
  * is_punctuation - boolean true of false
  * @c: the chart to check
  * Return: a boolean true of false
  */
+
 int is_punctuation(char c)
 {
 	int i;
@@ -29,6 +31,7 @@ int is_punctuation(char c)
  * @string: the string to split
  * Return: the number of words
  */
+
 int number_of_words(const char *string)
 {
 	int count = 0;

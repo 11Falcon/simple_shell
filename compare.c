@@ -1,4 +1,5 @@
 #include "shell.h"
+
 /**
  * compare - compare to strings
  * @str1: first string

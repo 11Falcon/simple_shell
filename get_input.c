@@ -1,4 +1,5 @@
 #include "shell.h"
+
 /**
  * get_input - reduce lines
  * Return: char
