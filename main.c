@@ -11,10 +11,10 @@ int main(int ac, char **av)
 
 	while (1)
 	{
-		i_i = split_(ash);
 		ash = get_input();
+		i_i = split_(ash);
 		argv = split(ash);
-		if (argv[0] == NULL)
+		if (i_i[0] == NULL)
 			continue;
 		if (compare(i_i[0], "exit"))
 		{

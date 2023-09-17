@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * split_child - reduce lines
+ * split_child1 - reduce lines
  * @string: input
  * @i: index of the current word
  * @list: the list of words
@@ -10,7 +10,6 @@
 char **split_child1(const char *string, int i, char **list)
 {
 	int l, s;
-	char *path = "/bin/";
 
 	if (!string || !list)
 		return (NULL);
@@ -36,13 +35,13 @@ char **split_child1(const char *string, int i, char **list)
 	else
 	{
 		while (is_punctuation(*string))
-                        string++;
+			string++;
 	}
 	return (list);
 }
 
 /**
- * split - splitting a string to words
+ * split_ - splitting a string to words
  * @string: the sentence to split
  * Return: a list of words
  */
@@ -67,10 +66,10 @@ char **split_(const char *string)
 			return (NULL);
 		while (!is_punctuation(*string))
 			string++;
-                while (is_punctuation(*string))
+		while (is_punctuation(*string))
 			string++;
 		i++;
 	}
 	list[word] = (NULL);
-	return list;
+	return (list);
 }

@@ -9,7 +9,7 @@ char *merge(const char *beg, const char *end)
 {
 	int d = count_letters(beg);
 	int b = count_letters(end);
-	char *merge = malloc( d + b + 1);
+	char *merge = malloc(d + b + 1);
 	int i = 0;
 
 	if (!merge)
