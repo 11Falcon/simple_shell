@@ -62,5 +62,6 @@ char **split(const char *);
 
 /* coments,c */
 void remove_comments(char *);
-
+/* single commands */
+void single_commands(char **i_i, char *ash, char **argv);
 #endif

@@ -14,20 +14,13 @@ int main(int ac, char **av)
 	{
 		ash = get_input();
 		if (ash == NULL)
-		       break;
+			break;
 		remove_comments(ash);
-
 		i_i = split_(ash);
 		argv = split(ash);
 		if (i_i[0] == NULL)
 			continue;
-		if (compare(i_i[0], "exit"))
-		{
-			free(ash);
-			exit(1);
-		}
-		if (compare(i_i[0], "env"))
-			_environ(argv);
+		single_commands(i_i, ash, argv);
 		child_process_and_wait(argv, av);
 		free(ash);
 	}
