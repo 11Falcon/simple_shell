@@ -60,4 +60,7 @@ int _putchar(char);
 char **split_child(const char *, int, char **);
 char **split(const char *);
 
+/* coments,c */
+void remove_comments(char *);
+
 #endif

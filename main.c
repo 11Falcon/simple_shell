@@ -13,6 +13,10 @@ int main(int ac, char **av)
 	while (1)
 	{
 		ash = get_input();
+		if (ash == NULL)
+		       break;
+		remove_comments(ash);
+
 		i_i = split_(ash);
 		argv = split(ash);
 		if (i_i[0] == NULL)
