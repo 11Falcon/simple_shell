@@ -64,4 +64,6 @@ char **split(const char *);
 void remove_comments(char *);
 /* single commands */
 void single_commands(char **i_i, char *ash, char **argv);
+/* get line */
+int get_line(void);
 #endif
