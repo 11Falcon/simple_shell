@@ -3,7 +3,6 @@
  * single_commands - sambling single commands treatement
  * @i_i: list
  * @ash: char*
- * @argv: char **
  */
 void single_commands(char **i_i, char *ash)
 {

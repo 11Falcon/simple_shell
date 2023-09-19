@@ -14,7 +14,7 @@ extern char **environ;
 typedef void (*fonction)();
 
 /**
- * punc - structure
+ * struct punc - structure
  * @c: pointuation
  * @description: desc
  */
