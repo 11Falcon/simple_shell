@@ -18,6 +18,8 @@ int main(int ac, char **av)
 		remove_comments(ash);
 
 		i_i = split_(ash);
+		echo_commands(i_i);
+
 		argv = split(ash);
 		if (i_i[0] == NULL)
 			continue;

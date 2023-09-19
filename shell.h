@@ -63,4 +63,7 @@ char **split(const char *);
 /* coments,c */
 void remove_comments(char *);
 
+/* _echo.c */
+void echo_commands(char **);
+
 #endif
