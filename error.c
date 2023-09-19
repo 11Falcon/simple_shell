@@ -11,6 +11,6 @@ void error_handling(void *ptr, const char *message)
 	if (ptr == NULL)
 	{
 		write(STDERR_FILENO, message, 30);
-		exit(1);
+		exit(-1);
 	}
 }
