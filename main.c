@@ -23,16 +23,17 @@ int main(int ac, char **av)
 		remove_comments(ash);
 
 		i_i = split_(ash);
-		if (!i_i)
+		if (i_i[0] == NULL)
 		{
 			free(ash);
 			continue;
 		}
-		echo_commands(i_i);
-
-		argv = split(ash);
-		if (i_i[0] == NULL)
+		if (echo_commands(i_i) == 1)
+		{
+			free(ash);
 			continue;
+		}
+		argv = split(ash);
 		if (compare(i_i[0], "exit"))
 		{
 			free(ash);

@@ -40,7 +40,7 @@ char *convert_number(long int nb, int bs, int test)
  * @str: the string that has the command to handle
  * Return: nothing
  */
-void echo_commands(char **str)
+int echo_commands(char **str)
 {
 	int k = 0;
 	pid_t ppid;
@@ -61,18 +61,22 @@ void echo_commands(char **str)
 				_puts("path not found");
 				_putchar('\n');
 			}
+			return (1);
 		}
-		if (compare(str[k + 1], "$$"))
+		else if (compare(str[k + 1], "$$"))
 		{
 			ppid = getppid();
 			_puts(convert_number(ppid, 10, 0));
 			_putchar('\n');
+			return (1);
 		}
-		if (compare(str[k + 1], "$?"))
+		else if (compare(str[k + 1], "$?"))
 		{
 			_puts(convert_number(WEXITSTATUS(system(NULL)), 10, 0));
 			_putchar('\n');
+			return (1);
 		}
 
 	}
+	return (0);
 }

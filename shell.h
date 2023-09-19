@@ -65,6 +65,6 @@ void remove_comments(char *);
 
 /* _echo.c */
 char *convert_number(long int, int, int);
-void echo_commands(char **);
+int echo_commands(char **);
 
 #endif
