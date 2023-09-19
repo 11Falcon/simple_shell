@@ -76,7 +76,7 @@ int echo_commands(char **str)
 			_putchar('\n');
 			return (1);
 		}
-		else if (str[k + 1] == NULL || str[k + 1] == " ")
+		else if (str[k + 1] == NULL)
 		{
 			_putchar('\n');
 			return (1);
