@@ -8,7 +8,7 @@
  */
 int main(int ac, char **av)
 {
-	char *ash = malloc(1024), **argv, **i_i;
+	char *ash = malloc(1024), **argv = NULL, **i_i = NULL;
 
 	while (1)
 	{

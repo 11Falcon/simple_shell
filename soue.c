@@ -9,7 +9,7 @@
  */
 char **split_child(const char *string, int i, char **list)
 {
-	int l, s, o_o = 0;
+	int l = 0, s = 0, o_o = 0;
 	char *path = "/bin/";
 
 	if (!string || !list)

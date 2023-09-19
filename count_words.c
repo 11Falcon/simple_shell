@@ -8,7 +8,7 @@
 
 int is_punctuation(char c)
 {
-	int i;
+	int i = 0;
 	pun_t my_punc[] = {
 		{'.', "point"},
 		{',', "comma"},

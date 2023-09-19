@@ -6,7 +6,7 @@
  */
 char *get_input()
 {
-	int r;
+	int r = 0;
 	char *ash = (char *)malloc(1024);
 
 	write(STDOUT_FILENO, "($) ", 4);

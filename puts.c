@@ -7,7 +7,7 @@
 */
 void _puts(char *ch)
 {
-	int i;
+	int i = 0;
 
 	if (ch == NULL)
 		return;

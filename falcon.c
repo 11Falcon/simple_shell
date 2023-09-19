@@ -9,7 +9,7 @@
  */
 char **split_child1(const char *string, int i, char **list)
 {
-	int l, s;
+	int l = 0, s = 0;
 
 	if (!string || !list)
 		return (NULL);
@@ -47,8 +47,8 @@ char **split_child1(const char *string, int i, char **list)
  */
 char **split_(const char *string)
 {
-	char **list;
-	int word, i = 0;
+	char **list = NULL;
+	int word = 0, i = 0;
 
 	if (!string)
 		return (NULL);
