@@ -5,7 +5,7 @@
  * @ash: char*
  * @argv: char **
  */
-void single_commands(char **i_i, char *ash, char **argv)
+void single_commands(char **i_i, char *ash)
 {
 	if (compare(i_i[0], "exit"))
 	{
@@ -13,5 +13,5 @@ void single_commands(char **i_i, char *ash, char **argv)
 		exit(1);
 	}
 	if (compare(i_i[0], "env"))
-		_environ(argv);
+		_environ();
 }

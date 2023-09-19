@@ -33,7 +33,7 @@ int main(int ac, char **av)
 		argv = split(ash);
 		if (i_i[0] == NULL)
 			continue;
-		single_commands(i_i, ash, argv);
+		single_commands(i_i, ash);
 		child_process_and_wait(argv, av);
 		free(ash);
 	}
