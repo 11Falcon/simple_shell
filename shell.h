@@ -70,4 +70,5 @@ int get_line(void);
 /* _echo.c */
 char *convert_number(long int, int, int);
 int echo_commands(char **);
+void subecho(char *path);
 #endif

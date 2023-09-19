@@ -51,16 +51,7 @@ int echo_commands(char **str)
 		if (compare(str[k + 1], "$PATH"))
 		{
 			path = getenv("PATH");
-			if (path != NULL)
-			{
-				_puts(path);
-				_putchar('\n');
-			}
-			else
-			{
-				_puts("path not found");
-				_putchar('\n');
-			}
+			subecho(path);
 			return (1);
 		}
 		else if (compare(str[k + 1], "$$"))
@@ -81,7 +72,6 @@ int echo_commands(char **str)
 			_putchar('\n');
 			return (1);
 		}
-
 	}
 	return (0);
 }
