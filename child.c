@@ -32,7 +32,7 @@ void child_process(char **argv, char **av)
 		_puts(av[0]);
 		_puts(": 1: qwerty: not found");
 		_putchar('\n');
-		exit(1);
+		exit(-1);
 	}
 }
 
