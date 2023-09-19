@@ -1,7 +1,7 @@
 #include "shell.h"
 /**
  * subecho - reducing lines
- * @path char
+ * @path: char
  */
 void subecho(char *path)
 {
