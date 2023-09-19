@@ -14,7 +14,7 @@ extern char **environ;
 typedef void (*fonction)();
 
 /**
- * punc - structure
+ * struct punc - structure
  * @c: pointuation
  * @description: desc
  */
@@ -30,7 +30,7 @@ int compare(const char *, const char *);
 /* child.c */
 void child_process_and_wait(char **, char **);
 void child_process(char **, char **);
-void _environ();
+void _environ(void);
 
 /* count_letters.c */
 int count_letters(const char *);
@@ -64,6 +64,7 @@ char **split(const char *);
 void remove_comments(char *);
 
 /* _echo.c */
+char *convert_number(long int, int, int);
 void echo_commands(char **);
 
 #endif

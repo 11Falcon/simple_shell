@@ -1,4 +1,5 @@
 #include "shell.h"
+
 /**
  * child_process_and_wait - same thing
  * @argv: input
@@ -49,5 +50,4 @@ void _environ(void)
 		_puts(environ[i]);
 		_putchar('\n');
 	}
-
 }

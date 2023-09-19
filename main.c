@@ -8,16 +8,26 @@
  */
 int main(int ac, char **av)
 {
-	char *ash = malloc(1024), **argv, **i_i;
+	char *ash = NULL;
+	char **argv = NULL, **i_i = NULL;
 
 	while (1)
 	{
 		ash = get_input();
 		if (ash == NULL)
-		       break;
+		{
+			free(ash);
+			break;
+		}
+
 		remove_comments(ash);
 
 		i_i = split_(ash);
+		if (!i_i)
+		{
+			free(ash);
+			continue;
+		}
 		echo_commands(i_i);
 
 		argv = split(ash);
@@ -29,7 +39,7 @@ int main(int ac, char **av)
 			exit(1);
 		}
 		if (compare(i_i[0], "env"))
-			_environ(argv);
+			_environ();
 		child_process_and_wait(argv, av);
 		free(ash);
 	}

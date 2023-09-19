@@ -7,15 +7,15 @@
 */
 void remove_comments(char *arg)
 {
-    int i = 0;
+	int i = 0;
 
-    while (arg[i])
-    {
-        if (arg[i] == '#' && (!i || arg[i - 1] == ' '))
-        {
-            arg[i] = '\0';
-            break;
-        }
-        i++;
-    }
+	while (arg[i])
+	{
+		if (arg[i] == '#' && (i == 0 || arg[i - 1] == ' '))
+		{
+			arg[i] = '\0';
+			break;
+		}
+		i++;
+	}
 }
