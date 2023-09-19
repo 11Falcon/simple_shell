@@ -14,9 +14,22 @@ int main(int ac, char **av)
 	{
 		ash = get_input();
 		if (ash == NULL)
+		{
+			free(ash);
 			break;
+		}
 		remove_comments(ash);
 		i_i = split_(ash);
+		if (i_i[0] == NULL)
+		{
+			free(ash);
+			continue;
+		}
+		if (echo_commands(i_i) == 1)
+		{
+			free(ash);
+			continue;
+		}
 		argv = split(ash);
 		if (i_i[0] == NULL)
 			continue;

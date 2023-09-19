@@ -47,8 +47,8 @@ char **split_child1(const char *string, int i, char **list)
  */
 char **split_(const char *string)
 {
-	char **list;
-	int word, i = 0;
+	char **list = NULL;
+	int word = 0, i = 0;
 
 	if (!string)
 		return (NULL);
@@ -63,7 +63,11 @@ char **split_(const char *string)
 	{
 		list = split_child1(string, i, list);
 		if (!list)
+		{
+			error_handling(list, "Error: split_child1() failed\n");
+			free(list);
 			return (NULL);
+		}
 		while (!is_punctuation(*string))
 			string++;
 		while (is_punctuation(*string))

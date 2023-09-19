@@ -11,7 +11,7 @@ void remove_comments(char *arg)
 
 	while (arg[ii])
 	{
-		if (arg[ii] == '#' && (!ii || arg[ii - 1] == ' '))
+		if (arg[ii] == '#' && (ii == 0 || arg[ii - 1] == ' '))
 		{
 			arg[ii] = '\0';
 			break;

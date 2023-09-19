@@ -58,8 +58,8 @@ char **split_child(const char *string, int i, char **list)
  */
 char **split(const char *string)
 {
-	char **list;
-	int word, i = 0;
+	char **list = NULL;
+	int word = 0, i = 0;
 
 	if (!string)
 		return (NULL);
@@ -74,7 +74,11 @@ char **split(const char *string)
 	{
 		list = split_child(string, i, list);
 		if (!list)
+		{
+			error_handling(list, "Error: split_child() failed\n");
+			free(list);
 			return (NULL);
+		}
 		if (!list[i])
 		{
 			error_handling(list, "Error : split_child() failed\n");

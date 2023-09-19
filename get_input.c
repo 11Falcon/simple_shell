@@ -9,6 +9,13 @@ char *get_input()
 	int r;
 	char *ash = (char *)malloc(1024);
 
+	if (ash ==  NULL)
+	{
+		error_handling(ash, "Error: memory allocation failed\n");
+		free(ash);
+		return (NULL);
+	}
+	memset(ash, 0, 1024);
 	write(STDOUT_FILENO, "($) ", 4);
 	r = read(STDIN_FILENO, ash, 1024);
 	if (r == -1)

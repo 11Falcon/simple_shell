@@ -66,4 +66,8 @@ void remove_comments(char *);
 void single_commands(char **i_i, char *ash, char **argv);
 /* get line */
 int get_line(void);
+
+/* _echo.c */
+char *convert_number(long int, int, int);
+int echo_commands(char **);
 #endif
