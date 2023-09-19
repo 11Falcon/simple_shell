@@ -30,7 +30,7 @@ int compare(const char *, const char *);
 /* child.c */
 void child_process_and_wait(char **, char **);
 void child_process(char **, char **);
-void _environ();
+void _environ(void);
 
 /* count_letters.c */
 int count_letters(const char *);
