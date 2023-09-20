@@ -10,7 +10,7 @@
 char **split_child(const char *string, int i, char **list)
 {
 	int l, s, o_o = 0;
-	char *path = "/bin/";
+	const char *path = "/bin/";
 
 	if (!string || !list)
 		return (NULL);
@@ -59,7 +59,7 @@ char **split_child(const char *string, int i, char **list)
 char **split(const char *string)
 {
 	char **list = NULL;
-	int word = 0, i = 0;
+	int word = 0, i = 0, j;
 
 	if (!string)
 		return (NULL);
@@ -76,12 +76,16 @@ char **split(const char *string)
 		if (!list)
 		{
 			error_handling(list, "Error: split_child() failed\n");
+			for (j = 0; j < i; j++)
+				free(list[j]);
 			free(list);
 			return (NULL);
 		}
 		if (!list[i])
 		{
 			error_handling(list, "Error : split_child() failed\n");
+			for (j = 0; j < i; j++)
+				free(list[j]);
 			free(list);
 			return (NULL);
 		}

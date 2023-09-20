@@ -21,6 +21,7 @@ char **split_child1(const char *string, int i, char **list)
 		if (!list[i])
 		{
 			error_handling(list, "Error : Memory allocation failed\n");
+			free(list[i]);
 			return (NULL);
 		}
 		while (s < l)
@@ -48,7 +49,7 @@ char **split_child1(const char *string, int i, char **list)
 char **split_(const char *string)
 {
 	char **list = NULL;
-	int word = 0, i = 0;
+	int word = 0, i = 0, j;
 
 	if (!string)
 		return (NULL);
@@ -65,6 +66,8 @@ char **split_(const char *string)
 		if (!list)
 		{
 			error_handling(list, "Error: split_child1() failed\n");
+			for (j = 0; j < i; j++)
+				free(list[j]);
 			free(list);
 			return (NULL);
 		}

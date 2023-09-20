@@ -9,15 +9,13 @@
 int main(int ac, char **av)
 {
 	char *ash = NULL, **argv, **i_i;
+	int j;
 
 	while (1)
 	{
 		ash = get_input();
 		if (ash == NULL)
-		{
-			free(ash);
 			break;
-		}
 		remove_comments(ash);
 		i_i = split_(ash);
 		if (i_i[0] == NULL)
@@ -32,9 +30,15 @@ int main(int ac, char **av)
 		}
 		argv = split(ash);
 		if (i_i[0] == NULL)
+		{
+			free(ash);
 			continue;
+		}
 		single_commands(i_i, ash);
 		child_process_and_wait(argv, av);
+		for (j = 0; i_i[j]; j++)
+			free(i_i[j]);
+		free(i_i);
 		free(ash);
 	}
 	return (0);
