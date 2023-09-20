@@ -12,7 +12,10 @@ char **split_child1(const char *string, int i, char **list)
 	int l, s;
 
 	if (!string || !list)
+	{
+		free(list);
 		return (NULL);
+	}
 	if (!is_punctuation(*string))
 	{
 		s = 0;

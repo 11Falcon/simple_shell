@@ -13,7 +13,10 @@ char **split_child(const char *string, int i, char **list)
 	const char *path = "/bin/";
 
 	if (!string || !list)
+	{
+		free(list);
 		return (NULL);
+	}
 	if (*string != '/')
 		o_o = 1;
 	if (!is_punctuation(*string))
@@ -26,6 +29,7 @@ char **split_child(const char *string, int i, char **list)
 		if (!list[i])
 		{
 			error_handling(list, "Error : Memory allocation failed\n");
+			free(list);
 			return (NULL);
 		}
 		if (o_o && i == 0)

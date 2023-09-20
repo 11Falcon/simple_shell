@@ -23,6 +23,7 @@ int main(int ac, char **av)
 		{
                         if (isatty(STDIN_FILENO) == 1)
                                 write(STDOUT_FILENO, "\n", 1);
+			free(ash);
 			return (status);
 		}
 		remove_comments(ash);
@@ -38,11 +39,6 @@ int main(int ac, char **av)
 			continue;
 		}
 		argv = split(ash);
-		if (i_i[0] == NULL)
-		{
-			free(ash);
-			continue;
-		}
 		single_commands(i_i, ash);
 		child_process_and_wait(argv, av);
 		for (j = 0; i_i[j]; j++)
