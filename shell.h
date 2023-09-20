@@ -72,5 +72,4 @@ int get_line(void);
 char *convert_number(long int, int, int);
 int echo_commands(char **);
 void subecho(char *path);
-void remove_newlines_ptr(char *string);
 #endif
