@@ -49,5 +49,4 @@ void _environ(void)
 		_puts(environ[i]);
 		_putchar('\n');
 	}
-
 }

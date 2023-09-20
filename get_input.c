@@ -16,6 +16,7 @@ char *get_input()
 		return (NULL);
 	}
 	memset(ash, 0, 1024);
+	write(STDOUT_FILENO, "($) ", 4);
 	r = read(STDIN_FILENO, ash, 1024);
 	if (r == -1)
 	{
