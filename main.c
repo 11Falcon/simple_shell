@@ -9,13 +9,22 @@
 int main(int ac, char **av)
 {
 	char *ash = NULL, **argv, **i_i;
-	int j;
+	int j, status = 0;
 
 	while (1)
 	{
+		if (isatty(STDIN_FILENO) == 1)
+		{
+			write(STDOUT_FILENO, "($) ", 4);
+		}
 		ash = get_input();
+
 		if (ash == NULL)
-			break;
+		{
+                        if (isatty(STDIN_FILENO) == 1)
+                                write(STDOUT_FILENO, "\n", 1);
+			return (status);
+		}
 		remove_comments(ash);
 		i_i = split_(ash);
 		if (i_i[0] == NULL)
