@@ -39,6 +39,9 @@ int main(int ac, char **av)
 		for (j = 0; i_i[j]; j++)
 			free(i_i[j]);
 		free(i_i);
+		for (j = 0; argv[j] != NULL; j++)
+			free(argv[j]);
+		free(argv);
 		free(ash);
 	}
 	return (0);

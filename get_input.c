@@ -12,7 +12,6 @@ char *get_input()
 	if (ash ==  NULL)
 	{
 		error_handling(ash, "Error: memory allocation failed\n");
-		free(ash);
 		return (NULL);
 	}
 	memset(ash, 0, 1024);

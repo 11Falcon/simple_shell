@@ -30,7 +30,7 @@ void child_process(char **argv, char **av)
 	if (execve(argv[0], argv, NULL) == -1)
 	{
 		_puts(av[0]);
-		_puts(": 1: qwerty: not found");
+		_puts(": No such file or directory");
 		_putchar('\n');
 		exit(-1);
 	}

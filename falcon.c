@@ -21,7 +21,6 @@ char **split_child1(const char *string, int i, char **list)
 		if (!list[i])
 		{
 			error_handling(list, "Error : Memory allocation failed\n");
-			free(list[i]);
 			return (NULL);
 		}
 		while (s < l)
