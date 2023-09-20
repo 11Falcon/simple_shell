@@ -31,3 +31,18 @@ char *get_input()
 	}
 	return (ash);
 }
+/**remove_newlines_ptr - remove it
+ * @string: nice
+ */
+void remove_newlines_ptr(char *string)
+{
+	char *p = string;
+	while (*p != '\0')
+	{
+		if (*p == '\n')
+		{
+			*p = '\0';
+		}
+		p++;
+	}
+}

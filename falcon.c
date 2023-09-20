@@ -68,7 +68,7 @@ char **split_(const char *string)
 		if (!list)
 		{
 			error_handling(list, "Error: split_child1() failed\n");
-			for (j = 0; j < i; j++)
+			for (j = 0; j <= i; j++)
 				free(list[j]);
 			free(list);
 			return (NULL);

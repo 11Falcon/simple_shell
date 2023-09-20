@@ -7,16 +7,13 @@
  */
 void child_process_and_wait(char **argv, char **av)
 {
+	int status;
 	pid_t pid = fork();
 
 	if (pid == 0)
 		child_process(argv, av);
 	else
-	{
-		int status;
-
 		wait(&status);
-	}
 }
 
 /**
