@@ -15,11 +15,6 @@ char *get_input()
 		return (NULL);
 	}
 	memset(ash, 0, 1024);
-<<<<<<< HEAD
-=======
-	if (isatty(STDIN_FILENO))
-		write(STDOUT_FILENO, "($) ", 4);
->>>>>>> 75b2d0ff6896a04bbdda9f07cc0e7fb522a8de03
 	r = read(STDIN_FILENO, ash, 1024);
 	if (r == -1)
 	{
