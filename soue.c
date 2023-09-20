@@ -13,10 +13,7 @@ char **split_child(const char *string, int i, char **list)
 	const char *path = "/bin/";
 
 	if (!string || !list)
-	{
-		free(list);
 		return (NULL);
-	}
 	if (*string != '/')
 		o_o = 1;
 	if (!is_punctuation(*string))
@@ -28,8 +25,7 @@ char **split_child(const char *string, int i, char **list)
 		list[i] = malloc(l + 1);
 		if (!list[i])
 		{
-			error_handling(list, "Error : Memory allocation failed\n");
-			free(list);
+			section(list);
 			return (NULL);
 		}
 		if (o_o && i == 0)
@@ -63,7 +59,7 @@ char **split_child(const char *string, int i, char **list)
 char **split(const char *string)
 {
 	char **list = NULL;
-	int word = 0, i = 0, j;
+	int word = 0, i = 0;
 
 	if (!string)
 		return (NULL);
@@ -80,16 +76,12 @@ char **split(const char *string)
 		if (!list)
 		{
 			error_handling(list, "Error: split_child() failed\n");
-			for (j = 0; j < i; j++)
-				free(list[j]);
 			free(list);
 			return (NULL);
 		}
 		if (!list[i])
 		{
 			error_handling(list, "Error : split_child() failed\n");
-			for (j = 0; j < i; j++)
-				free(list[j]);
 			free(list);
 			return (NULL);
 		}
@@ -101,4 +93,14 @@ char **split(const char *string)
 	}
 	list[word] = (NULL);
 	return (list);
+}
+
+/**
+ * section - seciotn
+ * @list: list
+ */
+void section(char **list)
+{
+	error_handling(list, "Error : Memory allocation failed\n");
+	free(list);
 }

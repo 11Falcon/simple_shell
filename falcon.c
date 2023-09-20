@@ -9,13 +9,10 @@
  */
 char **split_child1(const char *string, int i, char **list)
 {
-	int l, s;
+	int l, s, j;
 
 	if (!string || !list)
-	{
-		free(list);
 		return (NULL);
-	}
 	if (!is_punctuation(*string))
 	{
 		s = 0;
@@ -24,7 +21,8 @@ char **split_child1(const char *string, int i, char **list)
 		if (!list[i])
 		{
 			error_handling(list, "Error : Memory allocation failed\n");
-			free(list);
+			for (j = 0; j <= i; j++)
+				free(list[j]);
 			return (NULL);
 		}
 		while (s < l)

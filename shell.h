@@ -59,6 +59,7 @@ int _putchar(char);
 /* soue.c */
 char **split_child(const char *, int, char **);
 char **split(const char *);
+void section(char **list);
 
 /* coments,c */
 void remove_comments(char *);
