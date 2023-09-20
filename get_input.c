@@ -12,11 +12,10 @@ char *get_input()
 	if (ash ==  NULL)
 	{
 		error_handling(ash, "Error: memory allocation failed\n");
-		free(ash);
 		return (NULL);
 	}
 	memset(ash, 0, 1024);
-	if (!isatty(STDIN_FILENO))
+	if (isatty(STDIN_FILENO))
 		write(STDOUT_FILENO, "($) ", 4);
 	r = read(STDIN_FILENO, ash, 1024);
 	if (r == -1)
