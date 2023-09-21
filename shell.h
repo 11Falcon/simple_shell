@@ -78,4 +78,9 @@ void free_i_i(char **i_i);
 char **splt(char *string);
 /*glob.c */
 void glob(char **i_i, char *ash, char **av);
+
+/* non_interactive.c */
+void space(char *);
+int non_interactive_func(char **, char **);
+
 #endif

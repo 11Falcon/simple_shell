@@ -39,6 +39,13 @@ int main(int ac, char **av)
 			free(ash);
 			continue;
 		}
+		if (isatty(STDIN_FILENO) == 0)
+			if (non_interactive_func(i_i, av) != -1)
+			{
+				/*free(ash);*/
+				free(i_i);
+				continue;
+			}
 		if (echo_commands(i_i) == 1)
 		{
 			free(ash);
