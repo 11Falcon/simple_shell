@@ -13,7 +13,7 @@ int main(int ac, char **av)
 
 	while (1)
 	{
-		if (isatty(0) == 1)
+		if (isatty(STDIN_FILENO) == 1)
 			write(STDOUT_FILENO, "($) ", 4);
 		ash = get_input();
 		if (ash == NULL)
