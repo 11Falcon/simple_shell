@@ -1,4 +1,6 @@
 #include "shell.h"
+/**
+ * is_exit - compare
 int is_exit(const char *string, const char *exit)
 {
 	int i = 0, count = 0;

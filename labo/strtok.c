@@ -1,4 +1,6 @@
 #include "shell.h"
+/**
+ * custom
 char **custom_strtok(char *str) {
 	char *next_token = NULL;
 	char **ptr = NULL;

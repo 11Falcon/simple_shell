@@ -3,6 +3,7 @@
  * child_process_and_wait - same thing
  * @argv: input
  * @av: args
+ * @ash: string
  * Return: nothing
  */
 int child_process_and_wait(char **argv, char **av, char *ash)
@@ -13,7 +14,9 @@ int child_process_and_wait(char **argv, char **av, char *ash)
 	if (pid == 0)
 	{
 		if ((child_process(argv, av, ash)) == 1)
+		{
 			return (1);
+		}
 		else
 			return (-1);
 	}
@@ -26,6 +29,7 @@ int child_process_and_wait(char **argv, char **av, char *ash)
  * child_process - same
  * @argv: input
  * @av: args
+ * @ash: string
  * Return: nothing
  */
 int child_process(char **argv, char **av, char *ash)
@@ -37,7 +41,7 @@ int child_process(char **argv, char **av, char *ash)
 		_putchar('\n');
 		free(ash);
 		free_i_i(argv);
-		exit(-1);
+		return (-1);
 	}
 	else
 		return (1);

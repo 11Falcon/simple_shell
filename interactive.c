@@ -1,6 +1,7 @@
 #include "shell.h"
 /**
- * space - 
+ * space - space
+ * @s: input
  */
 void space(char *s)
 {
@@ -21,32 +22,38 @@ void space(char *s)
 	}
 }
 
+/**
+ * non_interactive_func - dealing with it
+ * @str: str
+ * @av: av
+ * Return: int
+ */
 int non_interactive_func(char **str, char **av)
 {
-        char *cmd;
-        pid_t pid;
-        int status;
-        int cmpt = 0;
-        int i = 0;
+	char *cmd;
+	pid_t pid;
+	int status;
+	int cmpt = 0;
+	int i = 0;
 
-        for (; str[cmpt]; cmpt++)
-                ;
-        while (i < cmpt)
-        {
-                cmd = strdup(str[i]);
-                space(cmd);
-                if (cmd[0] != '\0')
-                {
-                        pid = fork();
-                        if (pid == 0)
-                        {
-                                return (execve(cmd, av, NULL));
-                        }
-                        else
-                                wait(&status);
-                }
-                free(cmd);
-                i++;
-        }
-        return (0);
+	for (; str[cmpt]; cmpt++)
+		;
+	while (i < cmpt)
+	{
+		cmd = strdup(str[i]);
+		space(cmd);
+		if (cmd[0] != '\0')
+		{
+			pid = fork();
+			if (pid == 0)
+			{
+				return (execve(cmd, av, NULL));
+			}
+			else
+				wait(&status);
+		}
+		free(cmd);
+		i++;
+	}
+	return (0);
 }

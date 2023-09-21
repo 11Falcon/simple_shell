@@ -7,7 +7,7 @@
  * @list: the list of words
  * Return: a list of words
  */
-char **split_child1(const char *string,int i, char **list)
+char **split_child1(const char *string, int i, char **list)
 {
 	int l, s, j;
 
@@ -44,8 +44,7 @@ char **split_child1(const char *string,int i, char **list)
 
 /**
  * split_ - splitting a string to words
- * @string: the sentence to split
- * @i: number of word
+ * @str: the sentence to split
  * Return: a list of words
  */
 char **split_(const char *str)

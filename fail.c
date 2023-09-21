@@ -1,4 +1,9 @@
 #include "shell.h"
+/**
+ * fail - fail
+ * @h: int
+ * @ash: string
+ */
 void fail(int h, char *ash)
 {
 	if (h == -1)
