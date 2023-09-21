@@ -1,5 +1,8 @@
 #include "shell.h"
 
+/**
+ * space - 
+ */
 void space(char *s)
 {
 	int i = 0, j = 0;
@@ -19,6 +22,9 @@ void space(char *s)
 	}
 }
 
+/**
+ * non_interactive - 
+ */
 int non_interactive_func(char **str, char **av)
 {
 	char *cmd;
