@@ -5,15 +5,16 @@
  * @av: args
  * Return: nothing
  */
-void child_process_and_wait(char **argv, char **av)
+int child_process_and_wait(char **argv, char **av)
 {
 	int status;
 	pid_t pid = fork();
 
 	if (pid == 0)
-		child_process(argv, av);
+		return (child_process(argv, av));
 	else
 		wait(&status);
+	return (-1);
 }
 
 /**
@@ -22,7 +23,7 @@ void child_process_and_wait(char **argv, char **av)
  * @av: args
  * Return: nothing
  */
-void child_process(char **argv, char **av)
+int child_process(char **argv, char **av)
 {
 	if (execve(argv[0], argv, NULL) == -1)
 	{
@@ -31,6 +32,9 @@ void child_process(char **argv, char **av)
 		_putchar('\n');
 		exit(-1);
 	}
+	else
+		return (1);
+	return (-1);
 }
 
 /**

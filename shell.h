@@ -1,6 +1,7 @@
 #ifndef _SHELL_H_
 #define _SHELL_H_
 
+#include <stdlib.h>
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdio.h>
@@ -28,8 +29,8 @@ typedef struct punc
 int compare(const char *, const char *);
 
 /* child.c */
-void child_process_and_wait(char **, char **);
-void child_process(char **, char **);
+int child_process_and_wait(char **, char **);
+int child_process(char **, char **);
 void _environ(void);
 
 /* count_letters.c */
@@ -44,8 +45,7 @@ void error_handling(void *, const char *);
 
 /* Falcon.c */
 char **split_child1(const char *, int, char **);
-char **split_(const char *);
-
+char **split_(const char *string, int i);
 /* get_input.c */
 char *get_input();
 
@@ -64,7 +64,7 @@ void section(char **list);
 /* coments,c */
 void remove_comments(char *);
 /* single commands */
-void single_commands(char **i_i, char *ash);
+int single_commands(char **i_i, char *ash);
 /* get line */
 int get_line(void);
 
@@ -72,4 +72,8 @@ int get_line(void);
 char *convert_number(long int, int, int);
 int echo_commands(char **);
 void subecho(char *path);
+/* free */
+void free_i_i(char **i_i);
+/* splitfunc */
+char **splt(char *string);
 #endif
