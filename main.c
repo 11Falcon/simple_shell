@@ -19,7 +19,7 @@ int main(int ac, char **av)
 		if (ash == NULL)
 		{
 			if (isatty(STDIN_FILENO) == 1)
-				write(STDOUT_FILENO, "\n", 2);
+				write(STDOUT_FILENO, "\n", 1);
 			free(ash);
 			return (status);
 		}
