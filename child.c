@@ -15,10 +15,11 @@ int child_process_and_wait(char **argv, char **av)
 		if ((child_process(argv, av)) == 0)
 			return (1);
 		else
-			return (-1)
+			return (-1);
 	}
 	else
 		wait(&status);
+	return (-1);
 }
 
 /**

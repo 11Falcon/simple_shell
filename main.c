@@ -9,7 +9,7 @@
 int main(int ac, char **av)
 {
 	size_t st = 0;
-	char *ash = NULL, **argv, **i_i;
+	char *ash = NULL, **i_i;
 	int h, status = 0, i = 0;
 
 	(void)ac;

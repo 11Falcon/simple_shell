@@ -45,12 +45,13 @@ char **split_child1(const char *string, int i, char **list)
 /**
  * split_ - splitting a string to words
  * @string: the sentence to split
+ * @i: number of word
  * Return: a list of words
  */
-char **split_(const char *string)
+char **split_(const char *string, int i)
 {
 	char **list = NULL;
-	int word = 0, i = 0, j;
+	int word = 0, j;
 
 	if (!string)
 		return (NULL);
