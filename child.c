@@ -3,34 +3,49 @@
  * child_process_and_wait - same thing
  * @argv: input
  * @av: args
+ * @ash: string
  * Return: nothing
  */
-void child_process_and_wait(char **argv, char **av)
+int child_process_and_wait(char **argv, char **av, char *ash)
 {
 	int status;
 	pid_t pid = fork();
 
 	if (pid == 0)
-		child_process(argv, av);
+	{
+		if ((child_process(argv, av, ash)) == 1)
+		{
+			return (1);
+		}
+		else
+			return (-1);
+	}
 	else
 		wait(&status);
+	return (-1);
 }
 
 /**
  * child_process - same
  * @argv: input
  * @av: args
+ * @ash: string
  * Return: nothing
  */
-void child_process(char **argv, char **av)
+int child_process(char **argv, char **av, char *ash)
 {
 	if (execve(argv[0], argv, NULL) == -1)
 	{
 		_puts(av[0]);
 		_puts(": No such file or directory");
 		_putchar('\n');
-		exit(-1);
+		free(ash);
+		free_i_i(argv);
+		return (-1);
 	}
+	else
+		return (1);
+	return (-1);
 }
 
 /**

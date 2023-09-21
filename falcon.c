@@ -44,14 +44,17 @@ char **split_child1(const char *string, int i, char **list)
 
 /**
  * split_ - splitting a string to words
- * @string: the sentence to split
+ * @str: the sentence to split
  * Return: a list of words
  */
-char **split_(const char *string)
+char **split_(const char *str)
 {
 	char **list = NULL;
-	int word = 0, i = 0, j;
+	int word = 0, j, i = 0;
+	const char *string = str;
 
+	while (is_punctuation(*string))
+		string++;
 	if (!string)
 		return (NULL);
 	word = number_of_words(string);
