@@ -76,4 +76,6 @@ void subecho(char *path);
 void free_i_i(char **i_i);
 /* splitfunc */
 char **splt(char *string);
+/*glob.c */
+void glob(char **i_i, char *ash, char **av);
 #endif

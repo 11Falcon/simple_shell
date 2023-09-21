@@ -11,10 +11,14 @@ int child_process_and_wait(char **argv, char **av)
 	pid_t pid = fork();
 
 	if (pid == 0)
-		return (child_process(argv, av));
+	{
+		if ((child_process(argv, av)) == 0)
+			return (1);
+		else
+			return (-1)
+	}
 	else
 		wait(&status);
-	return (-1);
 }
 
 /**

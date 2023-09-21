@@ -44,11 +44,7 @@ int main(int ac, char **av)
 			free(ash);
 			continue;
 		}
-		argv = split(ash);
-		single_commands(i_i, ash);
-		child_process_and_wait(argv, av);
-		free_i_i(i_i);
-		free_i_i(argv);
+		glob(i_i, ash, av);
 	}
 	return (0);
 }
