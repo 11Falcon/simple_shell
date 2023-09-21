@@ -14,12 +14,15 @@ int main(int ac, char **av)
 	while (1)
 	{
 		if (isatty(STDIN_FILENO) == 1)
+		{
 			write(STDOUT_FILENO, "($) ", 4);
+		}
 		ash = get_input();
+
 		if (ash == NULL)
 		{
-			if (isatty(STDIN_FILENO) == 1)
-				write(STDOUT_FILENO, "\n", 1);
+                        if (isatty(STDIN_FILENO) == 1)
+                                write(STDOUT_FILENO, "\n", 1);
 			free(ash);
 			return (status);
 		}

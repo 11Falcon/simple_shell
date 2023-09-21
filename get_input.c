@@ -13,17 +13,19 @@ char *get_input()
 	{
 		error_handling(ash, "Error: memory allocation failed\n");
 		free(ash);
-		exit(1);
+		return (NULL);
 	}
 	r = read(STDIN_FILENO, ash, 1024);
 	if (r == -1)
 	{
-		write(STDIN_FILENO, "Error\n", 6);
+		write(STDOUT_FILENO, "Error\n", 6);
 		free(ash);
 		exit(1);
 	}
 	else if (r == 0)
 	{
+		write(STDOUT_FILENO, "\n", 2);
+		free(ash);
 		exit(0);
 	}
 	return (ash);
