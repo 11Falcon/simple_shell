@@ -63,6 +63,8 @@ char **split(const char *string)
 
 	if (!string)
 		return (NULL);
+	while (is_punctuation(*string))
+		string++;
 	word = number_of_words(string);
 	list = malloc((word + 1) * sizeof(char *));
 	if (!list)
@@ -75,7 +77,6 @@ char **split(const char *string)
 		list = split_child(string, i, list);
 		if (!list)
 		{
-			error_handling(list, "Error: split_child() failed\n");
 			for (j = 0; j < i; j++)
 				free(list[j]);
 			free(list);

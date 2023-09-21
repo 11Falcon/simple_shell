@@ -5,14 +5,14 @@
  * @av: args
  * Return: nothing
  */
-int child_process_and_wait(char **argv, char **av)
+int child_process_and_wait(char **argv, char **av, char *ash)
 {
 	int status;
 	pid_t pid = fork();
 
 	if (pid == 0)
 	{
-		if ((child_process(argv, av)) == 0)
+		if ((child_process(argv, av, ash)) == 1)
 			return (1);
 		else
 			return (-1);
@@ -28,13 +28,15 @@ int child_process_and_wait(char **argv, char **av)
  * @av: args
  * Return: nothing
  */
-int child_process(char **argv, char **av)
+int child_process(char **argv, char **av, char *ash)
 {
 	if (execve(argv[0], argv, NULL) == -1)
 	{
 		_puts(av[0]);
 		_puts(": No such file or directory");
 		_putchar('\n');
+		free(ash);
+		free_i_i(argv);
 		exit(-1);
 	}
 	else

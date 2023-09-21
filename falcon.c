@@ -7,7 +7,7 @@
  * @list: the list of words
  * Return: a list of words
  */
-char **split_child1(const char *string, int i, char **list)
+char **split_child1(const char *string,int i, char **list)
 {
 	int l, s, j;
 
@@ -48,11 +48,14 @@ char **split_child1(const char *string, int i, char **list)
  * @i: number of word
  * Return: a list of words
  */
-char **split_(const char *string, int i)
+char **split_(const char *str)
 {
 	char **list = NULL;
-	int word = 0, j;
+	int word = 0, j, i = 0;
+	const char *string = str;
 
+	while (is_punctuation(*string))
+		string++;
 	if (!string)
 		return (NULL);
 	word = number_of_words(string);

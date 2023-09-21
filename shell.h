@@ -26,11 +26,11 @@ typedef struct punc
 } pun_t;
 
 /* compare.c */
-int compare(const char *, const char *);
+int compare(const char *,const char *);
 
 /* child.c */
-int child_process_and_wait(char **, char **);
-int child_process(char **, char **);
+int child_process_and_wait(char **, char **, char *);
+int child_process(char **, char **, char *);
 void _environ(void);
 
 /* count_letters.c */
@@ -45,7 +45,7 @@ void error_handling(void *, const char *);
 
 /* Falcon.c */
 char **split_child1(const char *, int, char **);
-char **split_(const char *string, int i);
+char **split_(const char *str);
 /* get_input.c */
 char *get_input();
 
@@ -77,10 +77,13 @@ void free_i_i(char **i_i);
 /* splitfunc */
 char **splt(char *string);
 /*glob.c */
-void glob(char **i_i, char *ash, char **av);
+void glob(char *ash, char **av);
 
 /* non_interactive.c */
 void space(char *);
 int non_interactive_func(char **, char **);
-
+char **custom_strtok(char *str);
+int is_exit(const char *string, const char *exit);
+/* fail.c*/
+void fail(int h, char *ash);
 #endif

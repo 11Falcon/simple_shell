@@ -10,21 +10,14 @@ int main(int ac, char **av)
 {
 	size_t st = 0;
 	char *ash = NULL, **i_i;
-	int h, status = 0, i = 0;
-
-	(void)ac;
+	int h, status = 0;
 
 	while (1)
 	{
 		if (isatty(STDIN_FILENO) == 1)
 			write(STDOUT_FILENO, "($) ", 4);
 		h = getline(&ash, &st, stdin);
-		if (h == -1)
-		{
-			free(ash);
-			write(STDIN_FILENO, "\n", 2);
-			exit(EXIT_SUCCESS);
-		}
+		fail(h, ash);
 		if (ash == NULL)
 		{
 			if (isatty(STDIN_FILENO) == 1)
@@ -33,16 +26,12 @@ int main(int ac, char **av)
 			return (status);
 		}
 		remove_comments(ash);
-		i_i = split_(ash, i);
+		i_i = split_(ash);
 		if (i_i[0] == NULL)
-		{
-			free(ash);
 			continue;
-		}
 		if (isatty(STDIN_FILENO) == 0)
 			if (non_interactive_func(i_i, av) != -1)
 			{
-				/*free(ash);*/
 				free(i_i);
 				continue;
 			}
@@ -51,7 +40,10 @@ int main(int ac, char **av)
 			free(ash);
 			continue;
 		}
-		glob(i_i, ash, av);
+		if (single_commands(i_i, ash) == 1)
+			continue;
+		glob(ash, av);
 	}
 	return (0);
+	(void)ac;
 }

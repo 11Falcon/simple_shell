@@ -1,17 +1,16 @@
 #include "shell.h"
 /**
  * glob - glow
- * @i_i: i_i
  * @ash: ash
  * @av: av
  */
-void glob(char **i_i, char *ash, char **av)
+void glob(char *ash, char **av)
 {
-	char **argv;
+	char **argv = split(ash);
 
-	argv = split(ash);
-	single_commands(i_i, ash);
-	child_process_and_wait(argv, av);
-	free_i_i(i_i);
-	free_i_i(argv);
+	if(child_process_and_wait(argv, av, ash) == 1)
+	{
+		free(ash);
+		free_i_i(argv);
+	}
 }
