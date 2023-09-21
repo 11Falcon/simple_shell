@@ -8,14 +8,24 @@
  */
 int main(int ac, char **av)
 {
+	size_t st = 0;
 	char *ash = NULL, **argv, **i_i;
-	int j, status = 0;
+	int j, h, status = 0;
+
+	(void)ac;
 
 	while (1)
 	{
-		if (isatty(STDIN_FILENO) == 1)
-			write(STDOUT_FILENO, "($) ", 4);
-		ash = get_input();
+		if (isatty(0) == 1)
+			write(1, "($) ", 4);
+		h = getline(&ash, &st, stdin);
+		if (h == -1)
+		{
+			free(ash);
+			write(0, "\n", 2);
+			perror("error");
+			exit(EXIT_SUCCESS);
+		}
 		if (ash == NULL)
 		{
 			if (isatty(STDIN_FILENO) == 1)
@@ -27,12 +37,12 @@ int main(int ac, char **av)
 		i_i = split_(ash);
 		if (i_i[0] == NULL)
 		{
-			free(ash);
+			/*free(ash);*/
 			continue;
 		}
 		if (echo_commands(i_i) == 1)
 		{
-			free(ash);
+			/*free(ash);*/
 			continue;
 		}
 		argv = split(ash);
@@ -44,8 +54,7 @@ int main(int ac, char **av)
 		for (j = 0; argv[j] != NULL; j++)
 			free(argv[j]);
 		free(argv);
-		free(ash);
+		/*free(ash);*/
 	}
 	return (0);
-	(void)ac;
 }
