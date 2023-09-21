@@ -15,6 +15,7 @@ char *get_input()
 		free(ash);
 		return (NULL);
 	}
+	memset(ash, 0, 1024);
 	r = read(STDIN_FILENO, ash, 1024);
 	if (r == -1)
 	{
