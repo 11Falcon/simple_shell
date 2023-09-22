@@ -10,7 +10,7 @@ int main(int ac, char **av)
 {
 	size_t st = 0;
 	int h, status = 0;
-	struct CommandResult _structur;
+	com _structur;
 
 	while (1)
 	{
@@ -49,6 +49,8 @@ int main(int ac, char **av)
 			continue;
 		}
 		glob(ash, av);
+		free(ash);
+		free(i_i);
 	}
 	return (0);
 	(void)ac;

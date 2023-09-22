@@ -33,7 +33,7 @@ typedef struct punc
 typedef struct CommandResult {
     char *command;
     int execveResult;
-};
+} com;
 /* compare.c */
 int compare(const char *, const char *);
 
@@ -90,7 +90,7 @@ void glob(char *ash, char **av);
 
 /* non_interactive.c */
 void space(char *);
-int non_interactive_func(char **, char **);
+com non_interactive_func(char **str, char **av);
 char **custom_strtok(char *str);
 int is_exit(char *string, char *exit);
 /* fail.c*/

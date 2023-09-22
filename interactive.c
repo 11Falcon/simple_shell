@@ -9,7 +9,7 @@ void space(char *s)
 	int i = 0, j = 0;
 	int l = 0;
 
-	while (s[l])
+	while (s[l] != '\0')
 		l++;
 	while (s[i] == ' ' || s[i] == '\t')
 		i++;
@@ -30,9 +30,9 @@ void space(char *s)
  * @av: av
  * Return: int
  */
-struct CommandResult non_interactive_func(char **str, char **av)
+com non_interactive_func(char **str, char **av)
 {
-	struct CommandResult result;
+	com result;
         char *cmd;
         pid_t pid;
         int status;
@@ -62,7 +62,7 @@ struct CommandResult non_interactive_func(char **str, char **av)
                                 else
                                 {
 					result.execveResult = execve(cmd, av, NULL);
-					result.command = cmd
+					result.command = cmd;
                                         return (result);
                                 }
                         }
