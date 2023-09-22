@@ -3,23 +3,24 @@
 #include <string.h>
 #include <unistd.h>
 
-int file_exists(const char *file) {
+int file_exists(const char *file)
+{
 	char *path = getenv("PATH");
-	if (path == NULL)
-		return 0;
 	char *path_copy = strdup(path);
-	if (path_copy == NULL)
-	{
-		perror("strdup");
-        return 0;
-	}
-
 	char *dir = strtok(path_copy, ":");
 	int exists = 0;
 
+	if (path == NULL)
+		return 0;
+	if (path_copy == NULL)
+	{
+		perror("strdup");
+		return 0;
+	}
 	while (dir != NULL)
 	{
 		char *full_path = malloc(strlen(dir) + strlen(file) + 2);
+
 		if (full_path == NULL)
 		{
 			perror("malloc");

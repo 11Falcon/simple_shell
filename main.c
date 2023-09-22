@@ -10,7 +10,6 @@ int main(int ac, char **av)
 {
 	size_t st = 0;
 	int h, status = 0;
-	/*com _structur;*/
 
 	while (1)
 	{
@@ -33,17 +32,6 @@ int main(int ac, char **av)
 		i_i = split_(ash);
 		if (i_i[0] == NULL)
 			continue;
-		/**if (isatty(STDIN_FILENO) == 0)
-		{
-			_structur = non_interactive_func(i_i, av);
-			if (_structur.execveResult == -1)
-			{
-				free(_structur.command);
-				free(i_i);
-				continue;
-			}
-		}
-		*/
 		if (echo_commands(i_i) == 1)
 		{
 			free(ash);
