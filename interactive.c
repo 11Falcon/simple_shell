@@ -30,14 +30,17 @@ void space(char *s)
  * @av: av
  * Return: int
  */
-int non_interactive_func(char **str, char **av)
+struct CommandResult non_interactive_func(char **str, char **av)
 {
+	struct CommandResult result;
         char *cmd;
         pid_t pid;
         int status;
         int cmpt = 0;
         int i = 0;
 
+	result.command = NULL;
+	result.execveResult = 0;
         for (; str[cmpt]; cmpt++)
                 ;
         while (i < cmpt)
@@ -51,13 +54,16 @@ int non_interactive_func(char **str, char **av)
                         {
                                 if (execve(cmd, av, NULL) == -1)
                                 {
+					result.execveResult = -1;
+					result.command = NULL;
                                         free(cmd);
                                         continue;
                                 }
                                 else
                                 {
-                                        free(cmd);
-                                        return (execve(cmd, av, NULL));
+					result.execveResult = execve(cmd, av, NULL);
+					result.command = cmd
+                                        return (result);
                                 }
                         }
                         else
@@ -68,7 +74,7 @@ int non_interactive_func(char **str, char **av)
                 }
                 i++;
         }
-        return (0);
+        return (result);
 }
 /**
  * int non_interactive_func(char **str, char **av)

@@ -25,6 +25,15 @@ typedef struct punc
 	char *description;
 } pun_t;
 
+/**
+ * struct CommandResult - structure
+ * @command: command
+ * @execveResult: result
+ */
+typedef struct CommandResult {
+    char *command;
+    int execveResult;
+};
 /* compare.c */
 int compare(const char *, const char *);
 

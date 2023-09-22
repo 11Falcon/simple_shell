@@ -33,7 +33,7 @@ int main(int ac, char **av)
 		if (i_i[0] == NULL)
 			continue;
 		if (isatty(STDIN_FILENO) == 0)
-			if (non_interactive_func(i_i, av) != -1)
+			if (non_interactive_func(i_i, av).execveResult != -1)
 			{
 				free(i_i);
 				continue;
