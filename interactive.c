@@ -29,7 +29,7 @@ void space(char *s)
  * @av: av
  * Return: int
  */
-/**
+
 int non_interactive_func(char **str, char **av)
 {
 	char *cmd;
@@ -62,8 +62,8 @@ int non_interactive_func(char **str, char **av)
 	}
 	return (0);
 }
-*/
 
+/**
 int non_interactive_func(char **str, char **av)
 {
 	pid_t pid;
@@ -90,3 +90,4 @@ int non_interactive_func(char **str, char **av)
 	}
 	return (0);
 }
+*/
