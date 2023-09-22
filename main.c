@@ -10,6 +10,7 @@ int main(int ac, char **av)
 {
 	size_t st = 0;
 	int h, status = 0;
+	struct CommandResult _structur;
 
 	while (1)
 	{
@@ -33,11 +34,15 @@ int main(int ac, char **av)
 		if (i_i[0] == NULL)
 			continue;
 		if (isatty(STDIN_FILENO) == 0)
-			if (non_interactive_func(i_i, av).execveResult != -1)
+		{
+			_structur = non_interactive_func(i_i, av);
+			if (_structur.execveResult == -1)
 			{
+				free(_structur.command);
 				free(i_i);
 				continue;
 			}
+		}
 		if (echo_commands(i_i) == 1)
 		{
 			free(ash);
