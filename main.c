@@ -10,7 +10,7 @@ int main(int ac, char **av)
 {
 	size_t st = 0;
 	int h, status = 0;
-	com _structur;
+	/*com _structur;*/
 
 	while (1)
 	{
