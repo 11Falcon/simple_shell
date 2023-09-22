@@ -33,7 +33,7 @@ int main(int ac, char **av)
 		i_i = split_(ash);
 		if (i_i[0] == NULL)
 			continue;
-		if (isatty(STDIN_FILENO) == 0)
+		/**if (isatty(STDIN_FILENO) == 0)
 		{
 			_structur = non_interactive_func(i_i, av);
 			if (_structur.execveResult == -1)
@@ -43,6 +43,7 @@ int main(int ac, char **av)
 				continue;
 			}
 		}
+		*/
 		if (echo_commands(i_i) == 1)
 		{
 			free(ash);
