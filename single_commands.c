@@ -1,23 +1,24 @@
 #include "shell.h"
 /**
  * single_commands - sambling single commands treatement
- * @i_i: list
  * @ash: char*
  * Return: int
  */
 
-int single_commands(char **i_i, char *ash)
+int single_commands(char *ash)
 {
-	if (compare(i_i[0], "exit"))
+	char *image = ash;
+
+	while(is_punctuation(*image))
+		image++;
+	if (is_exit(image, "exit"))
 	{
-		free_i_i(i_i);
 		free(ash);
 		exit(0);
 	}
-	if (compare(i_i[0], "env"))
+	if (is_exit(image, "env"))
 	{
 		_environ();
-		free_i_i(i_i);
 		free(ash);
 		return (1);
 	}

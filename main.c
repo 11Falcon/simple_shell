@@ -9,11 +9,12 @@
 int main(int ac, char **av)
 {
 	size_t st = 0;
-	char *ash = NULL, **i_i;
 	int h, status = 0;
 
 	while (1)
 	{
+		char *ash = NULL, **i_i;
+
 		if (isatty(STDIN_FILENO) == 1)
 			write(STDOUT_FILENO, "($) ", 4);
 		h = getline(&ash, &st, stdin);
@@ -31,6 +32,8 @@ int main(int ac, char **av)
 			free(ash);
 			return (status);
 		}
+		if (single_commands(ash) == 1)
+			continue;
 		remove_comments(ash);
 		i_i = split_(ash);
 		if (i_i[0] == NULL)
@@ -46,8 +49,6 @@ int main(int ac, char **av)
 			free(ash);
 			continue;
 		}
-		if (single_commands(i_i, ash) == 1)
-			continue;
 		glob(ash, av);
 	}
 	return (0);

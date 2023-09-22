@@ -64,7 +64,7 @@ void section(char **list);
 /* coments,c */
 void remove_comments(char *);
 /* single commands */
-int single_commands(char **i_i, char *ash);
+int single_commands(char *ash);
 /* get line */
 int get_line(void);
 
@@ -83,7 +83,7 @@ void glob(char *ash, char **av);
 void space(char *);
 int non_interactive_func(char **, char **);
 char **custom_strtok(char *str);
-int is_exit(const char *string, const char *exit);
+int is_exit(char *string, char *exit);
 /* fail.c*/
 void fail(int h, char *ash);
 /*strdup.c */

@@ -21,3 +21,28 @@ int compare(const char *str1, const char *str2)
 	else
 		return (0);
 }
+
+#include "shell.h"
+/**
+ * is_exit - compare
+ * @string: intpu
+ * @exit: input
+ * Retur: inte
+ */
+int is_exit(char *string, char *exit)
+{
+	int i = 0, count = 0, size = 0;
+
+	while (exit[count])
+		count++;
+	while (string[size])
+		size++;
+	if (count > size)
+		return (0);
+	for (i = 0; i < count; i++)
+	{
+		if (exit[i] != string[i])
+			return (0);
+	}
+	return (1);
+}
