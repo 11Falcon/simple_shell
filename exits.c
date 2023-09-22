@@ -2,7 +2,11 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
-
+/**
+ * file_exists - handling the path
+ * @file: the file name
+ * Return: boolean
+ */
 int file_exists(const char *file)
 {
 	char *path = getenv("PATH");
@@ -11,11 +15,11 @@ int file_exists(const char *file)
 	int exists = 0;
 
 	if (path == NULL)
-		return 0;
+		return (0);
 	if (path_copy == NULL)
 	{
 		perror("strdup");
-		return 0;
+		return (0);
 	}
 	while (dir != NULL)
 	{
@@ -25,7 +29,7 @@ int file_exists(const char *file)
 		{
 			perror("malloc");
 			free(path_copy);
-			return 0;
+			return (0);
 		}
 		sprintf(full_path, "%s/%s", dir, file);
 		if (access(full_path, F_OK) == 0)
@@ -36,5 +40,5 @@ int file_exists(const char *file)
 		dir = strtok(NULL, ":");
 	}
 	free(path_copy);
-	return exists;
+	return (exists);
 }

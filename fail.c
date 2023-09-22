@@ -4,6 +4,7 @@
  * @h: int
  * @ash: string
  * @status: int
+ * Return: int
  */
 int fail(int h, char *ash, int status)
 {
