@@ -42,7 +42,7 @@ int non_interactive_func(char **str, char **av)
 		;
 	while (i < cmpt)
 	{
-		cmd = strdup(str[i]);
+		cmd = _strdup(str[i]);
 		space(cmd);
 		if (cmd[0] != '\0')
 		{

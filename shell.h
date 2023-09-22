@@ -86,4 +86,6 @@ char **custom_strtok(char *str);
 int is_exit(const char *string, const char *exit);
 /* fail.c*/
 void fail(int h, char *ash);
+/*strdup.c */
+char *_strdup(char *str);
 #endif
