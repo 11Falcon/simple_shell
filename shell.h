@@ -85,7 +85,7 @@ int non_interactive_func(char **, char **);
 char **custom_strtok(char *str);
 int is_exit(char *string, char *exit);
 /* fail.c*/
-void fail(int h, char *ash);
+int fail(int h, char *ash, int status);
 /*strdup.c */
 char *_strdup(char *str);
 

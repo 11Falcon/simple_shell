@@ -30,8 +30,48 @@ void space(char *s)
  * @av: av
  * Return: int
  */
-
 int non_interactive_func(char **str, char **av)
+{
+        char *cmd;
+        pid_t pid;
+        int status;
+        int cmpt = 0;
+        int i = 0;
+
+        for (; str[cmpt]; cmpt++)
+                ;
+        while (i < cmpt)
+        {
+                cmd = _strdup(str[i]);
+                space(cmd);
+                if (cmd[0] != '\0')
+                {
+                        pid = fork();
+                        if (pid == 0)
+                        {
+                                if (execve(cmd, av, NULL) == -1)
+                                {
+                                        free(cmd);
+                                        continue;
+                                }
+                                else
+                                {
+                                        free(cmd);
+                                        return (execve(cmd, av, NULL));
+                                }
+                        }
+                        else
+                        {
+                                wait(&status);
+                                free(cmd);
+                        }
+                }
+                i++;
+        }
+        return (0);
+}
+/**
+ * int non_interactive_func(char **str, char **av)
 {
 	char *cmd;
 	pid_t pid;
@@ -62,4 +102,4 @@ int non_interactive_func(char **str, char **av)
 		i++;
 	}
 	return (0);
-}
+}*/
