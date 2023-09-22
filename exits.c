@@ -42,3 +42,13 @@ int file_exists(const char *file)
 	free(path_copy);
 	return (exists);
 }
+int main() {
+    const char *filenames[] = {"ls", "nonexistent_file", "echo", NULL};
+
+    for (int i = 0; filenames[i] != NULL; i++) {
+        int exists = file_exists(filenames[i]);
+        printf("File '%s' exists: %s\n", filenames[i], exists ? "Yes" : "No");
+    }
+
+    return 0;
+}
