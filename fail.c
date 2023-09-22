@@ -10,7 +10,7 @@ void fail(int h, char *ash)
 	{
 		free(ash);
 		write(STDIN_FILENO, "\n", 2);
-		perror("Error");
+		write(STDIN_FILENO, "Error\n", 6);
 		exit(EXIT_SUCCESS);
 	}
 }

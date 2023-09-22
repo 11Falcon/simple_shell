@@ -63,7 +63,7 @@ int echo_commands(char **str)
 		}
 		else if (compare(str[k + 1], "$?"))
 		{
-			_puts(convert_number(WEXITSTATUS(system(NULL)), 10, 0));
+			write(STDIN_FILENO, "Error\n", 6);
 			_putchar('\n');
 			return (1);
 		}

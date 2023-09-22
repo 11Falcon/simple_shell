@@ -6,9 +6,10 @@
 void space(char *s)
 {
 	int i = 0, j = 0;
-	int l;
+	int l = 0;
 
-	l = strlen(s);
+	while (s[l])
+		l++;
 	while (s[i] == ' ' || s[i] == '\t')
 		i++;
 	while (i < l)
