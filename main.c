@@ -50,8 +50,6 @@ int main(int ac, char **av)
 			continue;
 		}
 		glob(ash, av);
-		free(ash);
-		free(i_i);
 	}
 	return (0);
 	(void)ac;

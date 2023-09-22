@@ -14,5 +14,8 @@ void glob(char *ash, char **av)
 		free_i_i(argv);
 	}
 	else
+	{
+		free(ash);
 		free_i_i(argv);
+	}
 }
