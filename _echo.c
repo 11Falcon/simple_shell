@@ -10,7 +10,7 @@
 char *convert_number(long int nb, int bs, int test)
 {
 	static char *array;
-	static char buf[60];
+	static char buf[100];
 	char s = 0;
 	char *p;
 	unsigned long n = nb;

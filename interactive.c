@@ -1,4 +1,5 @@
 #include "shell.h"
+
 /**
  * space - space
  * @s: input
@@ -62,32 +63,3 @@ int non_interactive_func(char **str, char **av)
 	}
 	return (0);
 }
-
-/**
-int non_interactive_func(char **str, char **av)
-{
-	pid_t pid;
-	int status;
-	int i;
-	char *cmd;
-
-	for (i = 0; str[i] != NULL; i++)
-	{
-		cmd = strdup(str[i]);
-		space(cmd);
-		if (cmd[0] != '\0')
-		{
-			pid = fork();
-			if (pid == 0)
-			{
-				if (execve(cmd, av, NULL) == -1)
-					continue;
-			} 
-			else
-				wait(&status);
-		}
-		free(cmd);
-	}
-	return (0);
-}
-*/

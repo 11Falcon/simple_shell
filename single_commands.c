@@ -9,7 +9,7 @@ int single_commands(char *ash)
 {
 	char *image = ash;
 
-	while(is_punctuation(*image))
+	while (is_punctuation(*image))
 		image++;
 	if (is_exit(image, "exit"))
 	{

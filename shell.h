@@ -88,4 +88,5 @@ int is_exit(char *string, char *exit);
 void fail(int h, char *ash);
 /*strdup.c */
 char *_strdup(char *str);
+
 #endif

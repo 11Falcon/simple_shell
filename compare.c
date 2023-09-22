@@ -27,7 +27,7 @@ int compare(const char *str1, const char *str2)
  * is_exit - compare
  * @string: intpu
  * @exit: input
- * Retur: inte
+ * Return: inte
  */
 int is_exit(char *string, char *exit)
 {
