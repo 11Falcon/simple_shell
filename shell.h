@@ -26,7 +26,7 @@ typedef struct punc
 } pun_t;
 
 /* compare.c */
-int compare(const char *,const char *);
+int compare(const char *, const char *);
 
 /* child.c */
 int child_process_and_wait(char **, char **, char *);

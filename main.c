@@ -17,6 +17,12 @@ int main(int ac, char **av)
 		if (isatty(STDIN_FILENO) == 1)
 			write(STDOUT_FILENO, "($) ", 4);
 		h = getline(&ash, &st, stdin);
+		if (h == -1)
+		{
+			if (isatty(STDIN_FILENO) == 1)
+				write(STDOUT_FILENO, "\n", 2);
+			return (status);
+		}
 		fail(h, ash);
 		if (ash == NULL)
 		{
