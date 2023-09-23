@@ -1,5 +1,8 @@
 #include "shell.h"
-
+	char **comm_ = NULL;
+	char *lin = NULL;
+	char *_name = NULL;
+	int la_statut = 0;
 /**
  * main - the main function
  * @argc: the counter
