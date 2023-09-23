@@ -2,43 +2,46 @@
 
 /**
  * main - the main function
- * @ac: the argument counter
- * @av: array of strings
- * Return: 0
+ * @argc: the counter
+ * @argv: array of argc
+ * Return: stat
  */
-int main(int ac, char **av)
+int main(int argc, char **argv)
 {
-	size_t st = 0;
-	int h, status = 0;
+	char **cmd = NULL;
+	int k = 0, t;
+	size_t a = 0;
 
+	signal(SIGINT, ctl_c_);
+	_name = argv[0];
 	while (1)
 	{
-		char *ash = NULL, **i_i;
-
-		if (isatty(STDIN_FILENO) == 1)
-			write(STDOUT_FILENO, "($) ", 4);
-		h = getline(&ash, &st, stdin);
-		fail(h, ash, status);
-		if (ash == NULL)
+		non_inter();
+		_write_("($) ", STDOUT_FILENO);
+		if (getline(&lin, &a, stdin) == -1)
 		{
-			if (isatty(STDIN_FILENO) == 1)
-				write(STDOUT_FILENO, "\n", 2);
-			free(ash);
-			return (status);
+			free(lin);
+			exit(stat);
 		}
-		if (single_commands(ash) == 1)
-			continue;
-		remove_comments(ash);
-		i_i = split_(ash);
-		if (i_i[0] == NULL)
-			continue;
-		if (echo_commands(i_i) == 1)
+		sup_n_line(lin);
+		comment(lin);
+		comm_ = toking(lin, ";");
+		while (comm_[k] != NULL)
 		{
-			free(ash);
-			continue;
+			cmd = toking(comm_[i], " ");
+			if (cmd[0] = NULL)
+			{
+				free(cmd);
+				break;
+			}
+			t = par(cmd[0]);
+			init_(cmd, t);
+			free(cmd);
+			k++;
 		}
-		glob(ash, av);
+		free(comm_);
 	}
-	return (0);
-	(void)ac;
+	free(lin);
+	return (stat);
+	(void)argc;
 }
