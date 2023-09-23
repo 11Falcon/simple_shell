@@ -61,7 +61,7 @@ void sup_n_line(char *str)
 }
 
 /**
- *_strcpy - copy
+ *_scpy - copy
  *@src: source
  *@dest: destination
  */
