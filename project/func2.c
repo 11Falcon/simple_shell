@@ -69,8 +69,8 @@ void _strcpy(char *src, char *dest)
 {
 	int i_i = 0;
 
-	while (src[i_i] != '\0')
-		i_i++;
+	for (; src[i_i] != '\0'; i_i++)
+		;
 		dest[i_i] = src[i_i];
 	dest[i_i] = '\0';
 }

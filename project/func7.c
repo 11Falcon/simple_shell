@@ -29,7 +29,7 @@ int main(int argc, char **argv)
 		while (comm_[k] != NULL)
 		{
 			cmd = toking(comm_[k], " ");
-			if (cmd[0] = NULL)
+			if (cmd[0] == NULL)
 			{
 				free(cmd);
 				break;
