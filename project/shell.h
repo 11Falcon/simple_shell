@@ -38,7 +38,7 @@ extern char **space;
 extern char *lin;
 extern char **comm_;
 extern char *_name;
-
+extern int la_statut;
 /*helpers*/
 char **toking(char *input, char *dl);
 void _write_(char *str, int where);

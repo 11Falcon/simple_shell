@@ -22,7 +22,7 @@ void environnement(char **tokens __attribute__((unused)))
 
 void exiting(char **tokens)
 {
-	int num = 0, argv, stat;
+	int num = 0, argv;
 
 	while (tokens[num] != NULL)
 		num++;
@@ -31,7 +31,7 @@ void exiting(char **tokens)
 		free(tokens);
 		free(lin);
 		free(comm_);
-		exit(stat);
+		exit(la_statut);
 	}
 	else if (num == 2)
 	{
@@ -42,7 +42,7 @@ void exiting(char **tokens)
 			_write_(": 1: exit: Illegal number: ", STDERR_FILENO);
 			_write_(tokens[1], STDERR_FILENO);
 			_write_("\n", STDERR_FILENO);
-			stat = 2;
+			la_statut = 2;
 		}
 		else
 		{

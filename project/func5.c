@@ -9,7 +9,6 @@
 void init_(char **cur, int t)
 {
 	pid_t p;
-	int stat;
 
 	if (t == EX_COM || t == P_COM)
 	{
@@ -18,8 +17,8 @@ void init_(char **cur, int t)
 			executer(cur, t);
 		else
 		{
-			waitpid(p, &stat, 0);
-			stat >>= 8;
+			waitpid(p, &la_statut, 0);
+			la_statut >>= 8;
 		}
 	}
 	else

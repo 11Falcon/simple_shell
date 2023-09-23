@@ -63,7 +63,7 @@ void executer(char **tokens, int ct)
 	{
 		if (execve(checker(tokens[0]), tokens, NULL) == -1)
 		{
-			perror(_getenv("PWD"));
+			perror(_get_env("PWD"));
 			exit(2);
 		}
 	}
@@ -95,11 +95,11 @@ char *check_path(char *cmd)
 	char *p = _get_env("PATH");
 	int i;
 
-	if (p == NULL || _strlen(p) == 0)
+	if (p == NULL || _slen(p) == 0)
 		return (NULL);
-	pc = malloc(sizeof(*pc) * (_strlen(p) + 1));
+	pc = malloc(sizeof(*pc) * (_slen(p) + 1));
 	_scpy(p, pc);
-	pa = tokenizer(pc, ":");
+	pa = toking(pc, ":");
 	for (i = 0; pa[i] != NULL; i++)
 	{
 		temp2 = _strcat(pa[i], "/");
@@ -129,7 +129,7 @@ void (*get_(char *command))(char **)
 {
 	int i;
 	func_map ash[] = {
-		{"env", env}, {"exit", quit}
+		{"env", environnement}, {"exit", exiting}
 	};
 
 	for (i = 0; i < 2; i++)

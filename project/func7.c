@@ -9,7 +9,7 @@
 int main(int argc, char **argv)
 {
 	char **cmd = NULL;
-	int k = 0, t, stat;
+	int k = 0, t;
 	size_t a = 0;
 
 	signal(SIGINT, ctl_c_);
@@ -21,7 +21,7 @@ int main(int argc, char **argv)
 		if (getline(&lin, &a, stdin) == -1)
 		{
 			free(lin);
-			exit(stat);
+			exit(la_statut);
 		}
 		sup_n_line(lin);
 		comment(lin);
@@ -42,6 +42,6 @@ int main(int argc, char **argv)
 		free(comm_);
 	}
 	free(lin);
-	return (stat);
+	return (la_statut);
 	(void)argc;
 }

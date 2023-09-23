@@ -7,7 +7,7 @@
 void non_inter(void)
 {
 	char **cur = NULL;
-	int i, stat, t = 0;
+	int i, t = 0;
 	size_t n = 0;
 
 	if (!(isatty(STDIN_FILENO)))
@@ -32,6 +32,6 @@ void non_inter(void)
 			free(comm_);
 		}
 		free(lin);
-		exit(stat);
+		exit(la_statut);
 	}
 }
