@@ -1,19 +1,15 @@
 #include "shell.h"
 
-/**
- * Auth: Emma Udeji
- * 		 Pericles Adjovi
+/** par - determines the type of the command
+ * @cd: command to be parsed
  *
- * Description:
- * the extended functions for main.c
+ * Return: constant representing the type of the command
+ * Description -
+ * 		 EXT_COM (1) represents commands like /bin/ls
+ *		 INT_COM (2) represents commands like exit, env
+ *		 P_COM (3) represents commands found in the PATH like ls
+ *		 INV_COM (-1) represents invalid commands
  */
-
-
-/** par - d
- * @cd: command
- * Return: int
- */
-
 int par(char *cd)
 {
 	int i;

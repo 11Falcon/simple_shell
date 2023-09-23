@@ -65,7 +65,7 @@ void sup_n_line(char *str)
  *@src: source
  *@dest: destination
  */
-void _strcpy(char *src, char *dest)
+void _scpy(char *src, char *dest)
 {
 	int i_i = 0;
 
@@ -81,7 +81,7 @@ void _strcpy(char *src, char *dest)
  * Return: length of the string
  */
 
-int _strlen(char *str)
+int _slen(char *str)
 {
 	int l = 0;
 
