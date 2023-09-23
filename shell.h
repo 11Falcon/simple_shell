@@ -1,101 +1,77 @@
-#ifndef _SHELL_H_
-#define _SHELL_H_
+#ifndef SHELL_H
+#define SHELL_H
 
-#include <stdlib.h>
-#include <unistd.h>
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include <sys/types.h>
 #include <sys/wait.h>
-#include <string.h>
 #include <sys/stat.h>
+#include <unistd.h>
+#include <errno.h>
+#include <dirent.h>
+#include <signal.h>
 
-extern char **environ;
 
-typedef void (*fonction)();
+/*constants*/
+#define EX_COM 1
+#define INT_COM 2
+#define P_COM 3
+#define INV_COM -1
+
+#define min(a, b) (((a) < (b)) ? (a) : (b))
 
 /**
- * struct punc - structure
- * @c: pointuation
- * @description: desc
+ *struct map - a struct that maps a command name to a function 
+ *
+ *@command_name: name of the command
+ *@func: the function that executes the command
  */
-typedef struct punc
+
+typedef struct map
 {
-	char c;
-	char *description;
-} pun_t;
+	char *_name;
+	void (*func)(char **comm);
+} func_map;
 
-/**
- * struct CommandResult - structure
- * @command: command
- * @execveResult: result
- */
-typedef struct CommandResult {
-    char *command;
-    int execveResult;
-} com;
-/* compare.c */
-int compare(const char *, const char *);
+extern char **space;
+extern char *lin;
+extern char **comm_;
+extern char *_name;
+extern int la_statut;
+/*helpers*/
+char **toking(char *input, char *dl);
+void _write_(char *str, int where);
+void sup_n_line(char *str);
+int _slen(char *);
+void _scpy(char *, char *);
 
-/* child.c */
-int child_process_and_wait(char **, char **, char *);
-int child_process(char **, char **, char *);
-void _environ(void);
+/*helpers2*/
+int _strcmp(char *f, char *s);
+char *_strcat(char *dest, char *src);
+int _strspn(char *s1, char *s2);
+int _strcspn(char *s1, char *s2);
+char *_strchr(char *s, char c);
+/*helpers3*/
+char *_strtok_r(char *str, char *dl, char **ash);
+int _ati(char *s);
+void *_realloc(void *ptr, unsigned int os, unsigned int ns);
+void ctl_c_(int ash);
+void comment(char *ipt);
 
-/* count_letters.c */
-int count_letters(const char *);
+/*utils*/
+int par(char *);
+void executer(char **, int);
+char *checker(char *);
+void (*get_(char *))(char **);
+char *_get_env(char *);
 
-/* count_words.c */
-int is_punctuation(char);
-int number_of_words(const char *);
+/*built_in*/
+void environnement(char **);
+void exiting(char **tokens);
 
-/* error.c */
-void error_handling(void *, const char *);
+/*main*/
+extern void non_inter(void);
+extern void init_(char **current_command, int type_command);
 
-/* Falcon.c */
-char **split_child1(const char *, int, char **);
-char **split_(const char *str);
-/* get_input.c */
-char *get_input();
-
-/* merge_string.c */
-char *merge(const char *, const char *);
-
-/* puts.c */
-void _puts(char *);
-int _putchar(char);
-
-/* soue.c */
-char **split_child(const char *, int, char **);
-char **split(const char *);
-void section(char **list);
-
-/* coments,c */
-void remove_comments(char *);
-/* single commands */
-int single_commands(char *ash);
-/* get line */
-int get_line(void);
-
-/* _echo.c */
-char *convert_number(long int, int, int);
-int echo_commands(char **);
-void subecho(char *path);
-/* free */
-void free_i_i(char **i_i);
-/* splitfunc */
-char **splt(char *string);
-/*glob.c */
-void glob(char *ash, char **av);
-
-/* non_interactive.c */
-void space(char *);
-com non_interactive_func(char **str, char **av);
-char **custom_strtok(char *str);
-int is_exit(char *string, char *exit);
-/* fail.c*/
-int fail(int h, char *ash, int status);
-/*strdup.c */
-char *_strdup(char *str);
-
-#endif
+#endif /*SHELL_H*/

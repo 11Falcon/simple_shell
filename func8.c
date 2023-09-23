@@ -84,7 +84,7 @@ void executer(char **tokens, int ct)
  *
  * Return: path where the command is found in, NULL if not found
  */
-char *check_path(char *cmd)
+char *checker(char *cmd)
 {
 	char **pa = NULL;
 	char *temp, *temp2, *pc;

@@ -1,4 +1,5 @@
 #include "shell.h"
+	char **space = NULL;
 	char **comm_ = NULL;
 	char *lin = NULL;
 	char *_name = NULL;
